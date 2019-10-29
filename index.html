@@ -151,6 +151,72 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-学習まとめ2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/29/%E5%AD%A6%E7%BF%92%E3%81%BE%E3%81%A8%E3%82%812/">回帰木とランダムフォレスト</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/29/%E5%AD%A6%E7%BF%92%E3%81%BE%E3%81%A8%E3%82%812/" class="archive-article-date">
+  	<time datetime="2019-10-29T14:07:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-29</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="回帰木とCARTアルゴリズム"><a href="#回帰木とCARTアルゴリズム" class="headerlink" title="回帰木とCARTアルゴリズム"></a>回帰木とCARTアルゴリズム</h1><p>回帰木は木構造を用いて回帰を行う機械学習の手法の一つである。今回CARTアルゴリズムを採用し、回帰木を構築する。CARTは、Breiman(1984)によって開発された、2進木成長アルゴリズである。特定のトレーニングデータサンプル$d=\{(x_1,y_1),(x_2,y_2)…(x_n,y_n)\}$に対して、$x_i^j$は入力特徴ベクトル$x_i$の$j$番目の特徴を表し、特徴変数$x^j$と分岐点$S$を使い入力空間を二つ空間を分割する。そして、分割された空間$R_1$と$R_2$を以下のように定義される。</p>
+<script type="math/tex; mode=display">R_1(j,s)=\{x \mid x^j \leq s\}R_2(j,s)=\{x \mid x^j > s\}\tag{1}</script><p>変量jを列挙し、特定ｊに対して分岐点Sをスキャンすると、方程式(8)の最小値をもらえる(j,s)が最良分岐点として選ばれる。</p>
+<script type="math/tex; mode=display">\min\limits_{j,s}[\min\limits_{c_1}\sum_{x_i\in R_1(j,s)}(y_i-c_1)^2+\min\limits_{c_2}\sum_{x_i\in R_2(j,s)}(y_i-c_2)^2]</script><script type="math/tex; mode=display">c_m = 1\frac{1}{N_m}\sum_{x_i\in R_m(j,s)}y_i,x\in R_m,m=1,2\tag{2}</script><p>ここで、$R_m$は分割された空間を表し、$c_m$は空間にラベルの平均値である。続いて、分割された二つ部分空間を上記の過程のように分割し、このプロセスは停止条件を満たすところまで繰り返される。<br>決定木においては、個々の特徴量を独立に処理するから、分割の過程はデータのスケールに依存しないので、入力データは正規化と標準化は必要がないのである。決定木の問題点は、過剰適合しやすく、汎化能力が低い傾向があることである。</p>
+<h1 id="ランダムフォレスト"><a href="#ランダムフォレスト" class="headerlink" title="ランダムフォレスト"></a>ランダムフォレスト</h1><p>ランダムフォレストは、2001年に Leo Breiman によって提案された、異なる決定木を集めるアンサンブル学習アルゴリズムである。ランダムフォレストの構築の過程を以下のように示す。先ず、本来のトレーニングデータから、ブートストラップサンプリング(bootstrap　sample)を行う。<br>次に、ブートストラップサンプリングを用いて回帰木を作る際に、個々のノードで最適な特徴量を選ぶのではなく、本来の特徴量からランダムに選んでおく。そして、特徴量のサブセットを作り出し、このサブセットの中に最適な特徴量を選び、回帰木を構築する。ランダムにデータの選択とランダムに特徴量の選択を通して、異なる木を含める大森を構成する。最後に、予測を行う際は、森にすべでの決定木に対して予測を行い、これらの結果の平均値を最終な予測値として用いる。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/29/%E5%AD%A6%E7%BF%92%E3%81%BE%E3%81%A8%E3%82%812/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-学習のまとめ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -171,8 +237,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>サポートベクトルマシン(SVM)は、統計学習理論から開発された一般的な学習手法であり、本来2クラス問題を解決するために提出された。SVMのデータ分離方法は、データの特徴空間上で一つ超平面を探し、この超平面を決定境界として正確的にデータを分離させることである。当時に未知のデータに対する識別能力、すなわち汎化性能を高くするように、構造的リスク最小化原理により、マージンが最大となる超平面が最適超平面として選ばれる。</p>
-<p>サポートベクトル回帰器（SVR）がSVMに基づく入力から、連続量を近似する関数近似への拡張として認められる。特定トレーニングデータサンプル   $\lbrace x_i,y_i \rbrace _{i=1} ^N $  に対し、$N$はデータの数、$x_i$ は正規化特徴ベクトル、$y_i$ は実際値(本プロジェクトに実際の発電出力を表す)、$i$は順番である。回帰関数は方程式(1)のように想定されている。</p>
+        <h1 id="サポートベクトルマシン-SVM"><a href="#サポートベクトルマシン-SVM" class="headerlink" title="サポートベクトルマシン(SVM)"></a>サポートベクトルマシン(SVM)</h1><p>サポートベクトルマシン(SVM)は、統計学習理論から開発された一般的な学習手法であり、本来2クラス問題を解決するために提出された。SVMのデータ分離方法は、データの特徴空間上で一つ超平面を探し、この超平面を決定境界として正確的にデータを分離させることである。当時に未知のデータに対する識別能力、すなわち汎化性能を高くするように、構造的リスク最小化原理により、マージンが最大となる超平面が最適超平面として選ばれる。</p>
+<h1 id="サポートベクトル回帰器-SVR"><a href="#サポートベクトル回帰器-SVR" class="headerlink" title="サポートベクトル回帰器(SVR)"></a>サポートベクトル回帰器(SVR)</h1><p>サポートベクトル回帰器（SVR）がSVMに基づく入力から、連続量を近似する関数近似への拡張として認められる。特定トレーニングデータサンプル   $\lbrace x_i,y_i \rbrace _{i=1} ^N $  に対し、$N$はデータの数、$x_i$ は正規化特徴ベクトル、$y_i$ は実際値(本プロジェクトに実際の発電出力を表す)、$i$は順番である。回帰関数は方程式(1)のように想定されている。</p>
 <p>$f(x)=W*\phi(x)+b  \tag{1}$</p>
 <p>ここで、$\phi(x)$は入力空間を高次元の特徴空間に写像する関数である.$W$は高次元の係数ベクトルで、$b$はバイアス項である。誤差関数を方程式(2)と(3)のように表現する。</p>
 <script type="math/tex; mode=display">\min\limits_{w,b}( \frac{1}{2}{\lVert W \rVert}^2 + C\frac{1}{N}\sum_{i=1}^{n}{L_\epsilon (f(x_i)-y_i)}    ) \tag{2}</script><script type="math/tex; mode=display">
