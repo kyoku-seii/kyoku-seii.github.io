@@ -151,6 +151,81 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-python可视化50图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/">python可视化50图</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/" class="archive-article-date">
+  	<time datetime="2019-12-24T08:10:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一章-50图之散点图"><a href="#第一章-50图之散点图" class="headerlink" title="第一章.50图之散点图"></a>第一章.50图之散点图</h1><p>这个系列主要是记录自己python可视化的一个学习过程，主要的学习内容为复现博主Selva Prabhakaran在自己运营的机器学习网站MachineLearning Plus上发布了博文：Python可视化50图<br>原网址为:<a href="https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/" target="_blank" rel="noopener">https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/</a><br>作为小白，主要是对其中的代码细节进行学习与理解，针对其中的一些数据处理中的重要函数进行学习记录，并做一些相应的改进以及数据的探索。</p>
+<p>首先我们先看一下别人图的最后效果，五彩缤纷可以说非常的好看。<br><img src="/images/别人的图.png" alt=""><br>数据集的内容为美国中西部城市的一些数据记录，数据地址为<a href="https://raw.githubusercontent.com/selva86/datasets/master/midwest_filter.csv" target="_blank" rel="noopener">https://raw.githubusercontent.com/selva86/datasets/master/midwest_filter.csv</a><br>接下来就让我们开始复刻吧</p>
+<p>其中包的引入与pandas读取CSV文件的内容就不多论述了。<br><img src="/images/初步读取.png" alt=""></p>
+<h2 id="重点1-np-unique"><a href="#重点1-np-unique" class="headerlink" title="重点1:np.unique"></a>重点1:np.unique</h2><p>由于unique列中的标签过多，我们可以通过<em>np.unique</em>这个函数取出重复的标签，将标签类别以array的形式输出。<br><img src="/images/unique.png" alt=""></p>
+<p>现在x，y，类型都已经知道。接下来要解决颜色的问题</p>
+<h2 id="重点2-plt-cm-tab10"><a href="#重点2-plt-cm-tab10" class="headerlink" title="重点2:plt.cm.tab10()"></a>重点2:plt.cm.tab10()</h2><p>当面对大量的分类时，我们不可能再一个一个手打输入颜色的引数，我们已经是成熟的python学习者了要学会使用光谱了。<br>我们可以在plt.cm.tab10()(原作者使用的是tab10)中输入任意浮点数，来提取出一种颜色,数字接近时颜色也越接近。并且颜色是以4个维浮点数的元组表示的。<br><img src="/images/color.png" alt=""></p>
+<p>在处理玩颜色问题之后我们就可以初步的画出这个图了。<br>这是我们得到的初步结果，可以看到与原图已经十分接近了。同时我们也注意到光谱报错。<br><img src="/images/初步结果.png" alt=""><br><img src="/images/光谱报错.png" alt=""></p>
+<h2 id="重点3-光谱报错解决np-reshape-1-1"><a href="#重点3-光谱报错解决np-reshape-1-1" class="headerlink" title="重点3:光谱报错解决np.reshape(1,-1)"></a>重点3:光谱报错解决np.reshape(1,-1)</h2><p>报错原因:当我们对所有的点采用光谱中的一个数据时，程序就会报错。如果我们需要使用一种颜色进行填充，则要使用一个二维的列表。<br>这次我们将颜色的选择整合到循环中，将返回的元组转换为array类型，调用reshape方法升维。</p>
+<p>举个简单的栗子<br><img src="/images/栗子.png" alt=""></p>
+<p>可见对于一个1维的array，reshape中1在哪个位置，就设定对应的行或者列为1。<br><img src="/images/错误消失.png" alt=""><br>现在错误已经消失。</p>
+<h2 id="重点4-将legend部分的黑线取消"><a href="#重点4-将legend部分的黑线取消" class="headerlink" title="重点4:将legend部分的黑线取消"></a>重点4:将legend部分的黑线取消</h2><p>取消标注黑线的部分的程序主要有两步<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.style.use(<span class="string">'seaborn-whitegrid'</span>)</span><br><span class="line">sns.set_style(<span class="string">"white"</span>)</span><br></pre></td></tr></table></figure><br>我们先使用seaborn中的whitegrid模块，去除legend部分的虚线，再使用seaborn中的set_style将整个背面涂上白色。这样虚线也就被去除了。<br><img src="/images/去边框.png" alt=""></p>
+<p>最后对xlim，ylinm，xticks，yticks等地方进行装饰，我们的图也就画出了。<br>最后附上代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">plt.style.use(<span class="string">'seaborn-whitegrid'</span>)</span><br><span class="line">sns.set_style(<span class="string">"white"</span>)</span><br><span class="line"></span><br><span class="line">categories = np.unique(midwest[<span class="string">'标签'</span>])</span><br><span class="line">colors = [plt.cm.tab10(i/float(len(categories)<span class="number">-1</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(categories))]</span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">16</span>,<span class="number">10</span>),dpi=<span class="number">120</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(categories)):</span><br><span class="line">    plt.scatter(midwest.loc[midwest.标签==categories[i],<span class="string">'面积'</span>]</span><br><span class="line">                ,midwest.loc[midwest.标签==categories[i],<span class="string">'总人口'</span>]</span><br><span class="line">                ,s=<span class="number">20</span></span><br><span class="line">                ,c=np.array(plt.cm.tab10(i/float(len(categories)<span class="number">-1</span>))).reshape(<span class="number">1</span>,<span class="number">-1</span>)</span><br><span class="line">                ,label= categories[i])</span><br><span class="line">    </span><br><span class="line">plt.gca().set(xlim=(<span class="number">0</span>, <span class="number">0.12</span>), ylim=(<span class="number">0</span>, <span class="number">80000</span>)) </span><br><span class="line">plt.xticks(fontsize=<span class="number">12</span>) </span><br><span class="line">plt.yticks(fontsize=<span class="number">12</span>)</span><br><span class="line">plt.ylabel(<span class="string">'Population'</span>,fontsize=<span class="number">22</span>) </span><br><span class="line">plt.xlabel(<span class="string">'Area'</span>,fontsize=<span class="number">22</span>)</span><br><span class="line">plt.title(<span class="string">"Scatterplot of Midwest Area vs Population"</span>, fontsize=<span class="number">22</span>) </span><br><span class="line">plt.legend(fontsize=<span class="number">12</span>) </span><br><span class="line">plt.show()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/散点图.png" alt=""></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-爬虫基础学习日记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
