@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="回帰木とCARTアルゴリズム回帰木は木構造を用いて回帰を行う機械学習の手法の一つである。今回CARTアルゴリズムを採用し、回帰木を構築する。CARTは、Breiman(1984)によって開発された、2進木成長アルゴリズである。特定のトレーニングデータサンプル$d=\{(x_1,y_1),(x_2,y_2)…(x_n,y_n)\}$に対して、$x_i^j$は入力特徴ベクトル$x_i$の$j$番目の特">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-29T15:45:04.712Z">
+<meta property="og:updated_time" content="2019-12-24T11:31:11.612Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -175,6 +175,7 @@
         <h1 id="回帰木とCARTアルゴリズム"><a href="#回帰木とCARTアルゴリズム" class="headerlink" title="回帰木とCARTアルゴリズム"></a>回帰木とCARTアルゴリズム</h1><p>回帰木は木構造を用いて回帰を行う機械学習の手法の一つである。今回CARTアルゴリズムを採用し、回帰木を構築する。CARTは、Breiman(1984)によって開発された、2進木成長アルゴリズである。特定のトレーニングデータサンプル$d=\{(x_1,y_1),(x_2,y_2)…(x_n,y_n)\}$に対して、$x_i^j$は入力特徴ベクトル$x_i$の$j$番目の特徴を表し、特徴変数$x^j$と分岐点$S$を使い入力空間を二つ空間を分割する。そして、分割された空間$R_1$と$R_2$を以下のように定義される。</p>
 <script type="math/tex; mode=display">R_1(j,s)=\{x \mid x^j \leq s\}R_2(j,s)=\{x \mid x^j > s\}\tag{1}</script><p>変量jを列挙し、特定ｊに対して分岐点Sをスキャンすると、方程式(2)の最小値をもらえる(j,s)が最良分岐点として選ばれる。</p>
 <script type="math/tex; mode=display">\min\limits_{j,s}[\min\limits_{c_1}\sum_{x_i\in R_1(j,s)}(y_i-c_1)^2+\min\limits_{c_2}\sum_{x_i\in R_2(j,s)}(y_i-c_2)^2]</script><script type="math/tex; mode=display">c_m = 1\frac{1}{N_m}\sum_{x_i\in R_m(j,s)}y_i,x\in R_m,m=1,2\tag{2}</script><p>ここで、$R_m$は分割された空間を表し、$c_m$は空間にラベルの平均値である。続いて、分割された二つ部分空間を上記の過程のように分割し、このプロセスは停止条件を満たすところまで繰り返される。<br>決定木においては、個々の特徴量を独立に処理するから、分割の過程はデータのスケールに依存しないので、入力データは正規化と標準化は必要がないのである。決定木の問題点は、過剰適合しやすく、汎化能力が低い傾向があることである。</p>
+<a id="more"></a>
 <h1 id="ランダムフォレスト"><a href="#ランダムフォレスト" class="headerlink" title="ランダムフォレスト"></a>ランダムフォレスト</h1><p>ランダムフォレストは、2001年に Leo Breiman によって提案された、異なる決定木を集めるアンサンブル学習アルゴリズムである。ランダムフォレストの構築の過程を以下のように示す。先ず、本来のトレーニングデータから、ブートストラップサンプリング(bootstrap　sample)を行う。<br>次に、ブートストラップサンプリングを用いて回帰木を作る際に、個々のノードで最適な特徴量を選ぶのではなく、本来の特徴量からランダムに選んでおく。そして、特徴量のサブセットを作り出し、このサブセットの中に最適な特徴量を選び、回帰木を構築する。ランダムにデータの選択とランダムに特徴量の選択を通して、異なる木を含める大森を構成する。最後に、予測を行う際は、森にすべでの決定木に対して予測を行い、これらの結果の平均値を最終な予測値として用いる。</p>
 
       

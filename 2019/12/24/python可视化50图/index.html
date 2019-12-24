@@ -25,7 +25,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;错误消失.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;去边框.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;散点图.png">
-<meta property="og:updated_time" content="2019-12-24T11:13:45.137Z">
+<meta property="og:updated_time" content="2019-12-24T11:28:07.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;别人的图.png">
   
@@ -185,6 +185,7 @@
       
         <h1 id="第一章-50图之散点图"><a href="#第一章-50图之散点图" class="headerlink" title="第一章.50图之散点图"></a>第一章.50图之散点图</h1><p>这个系列主要是记录自己python可视化的一个学习过程，主要的学习内容为复现博主Selva Prabhakaran在自己运营的机器学习网站MachineLearning Plus上发布了博文：Python可视化50图<br>原网址为:<a href="https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/" target="_blank" rel="noopener">https://www.machinelearningplus.com/plots/top-50-matplotlib-visualizations-the-master-plots-python/</a><br>作为小白，主要是对其中的代码细节进行学习与理解，针对其中的一些数据处理中的重要函数进行学习记录，并做一些相应的改进以及数据的探索。</p>
 <p>首先我们先看一下别人图的最后效果，五彩缤纷可以说非常的好看。<br><img src="/images/别人的图.png" alt=""><br>数据集的内容为美国中西部城市的一些数据记录，数据地址为<a href="https://raw.githubusercontent.com/selva86/datasets/master/midwest_filter.csv" target="_blank" rel="noopener">https://raw.githubusercontent.com/selva86/datasets/master/midwest_filter.csv</a><br>接下来就让我们开始复刻吧</p>
+<a id="more"></a>
 <p>其中包的引入与pandas读取CSV文件的内容就不多论述了。<br><img src="/images/初步读取.png" alt=""></p>
 <h2 id="重点1-np-unique"><a href="#重点1-np-unique" class="headerlink" title="重点1:np.unique"></a>重点1:np.unique</h2><p>由于unique列中的标签过多，我们可以通过<em>np.unique</em>这个函数取出重复的标签，将标签类别以array的形式输出。<br><img src="/images/unique.png" alt=""></p>
 <p>现在x，y，类型都已经知道。接下来要解决颜色的问题</p>

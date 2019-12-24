@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="サポートベクトルマシン(SVM)サポートベクトルマシン(SVM)は、統計学習理論から開発された一般的な学習手法であり、本来2クラス問題を解決するために提出された。SVMのデータ分離方法は、データの特徴空間上で一つ超平面を探し、この超平面を決定境界として正確的にデータを分離させることである。当時に未知のデータに対する識別能力、すなわち汎化性能を高くするように、構造的リスク最小化原理により、マージンが">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-21T14:45:37.825Z">
+<meta property="og:updated_time" content="2019-12-24T11:32:03.707Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -180,7 +180,7 @@
 L_\epsilon (f(x_i)-y_i) = \begin{cases} 
 {0, {\lvert y_i-f(x_i) \rvert \leq \epsilon}}\\
 {\lvert y_i-f(x_i) \rvert - \epsilon, {others}}
-\end{cases} \tag{3}</script><p>ここで、$\frac{1}{2}{\lVert W \rVert}^2$は深み(回帰係数)、Cはマージンと教師データに対する近似誤差の間のトレードオフを調整するマージンパラメータである。$L_\epsilon$は区分線形誤差関数である。方程式(3)に示しているように、チューブ $\epsilon$        の中に予測値$f(x_i)$が入れば誤差が0となる。その一方で、チューブ $\epsilon$の以外の予測値に対して、誤差が$\lvert y_i-f(x_i) \rvert - \epsilon$となる。<br>スラック変数を導入し、方程式(2)と(3)は次のように表現する。</p>
+\end{cases} \tag{3}</script><p>ここで、$\frac{1}{2}{\lVert W \rVert}^2$は深み(回帰係数)、Cはマージンと教師データに対する近似誤差の間のトレードオフを調整するマージンパラメータである。$L_\epsilon$は区分線形誤差関数である。方程式(3)に示しているように、チューブ $\epsilon$        の中に予測値$f(x_i)$が入れば誤差が0となる。その一方で、チューブ $\epsilon$の以外の予測値に対して、誤差が$\lvert y_i-f(x_i) \rvert - \epsilon$となる。<br>スラック変数を導入し、方程式(2)と(3)は次のように表現する。<br><a id="more"></a></p>
 <script type="math/tex; mode=display">\min\limits_{w,b}( \frac{1}{2}{\lVert W \rVert}^2 + C\frac{1}{N}\sum_{i=1}^{n}{L_\epsilon ( \xi_i+ \hat{\xi})}    ) \tag{4}</script><p>Subject to: </p>
 <script type="math/tex; mode=display">\begin{cases}  
 {f(x_i)-y_i\leq\epsilon+\xi_i}\\
