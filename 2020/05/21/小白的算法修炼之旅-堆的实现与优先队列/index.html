@@ -6,14 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/12 | 王旭成的博客</title>
+  <title>小白的算法修炼之旅---堆的实现与优先队列 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王旭成的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;12&#x2F;index.html">
+  <meta name="description" content="小白的算法修炼之旅—-堆的实现与优先队列听说有些公司的面试题就是白板编一个堆，所以在这里总结一下自己对于堆的一些学习心得。 为什么需要堆？在完成队列的学习中，我们知道了队列是一种先进先出的数据结构，但是有的时候我们希望我们的出队操作是带有优先级的，能够让优先级最高的元素优先出队。比如医院看病，让最紧急的病人优先进行手术。 其实我们很自然的想到完全可以利用一个线性的数据结构保存队列，并且每次出队时扫">
+<meta name="keywords" content="算法修炼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白的算法修炼之旅---堆的实现与优先队列">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;05&#x2F;21&#x2F;%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%A0%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
+<meta property="og:description" content="小白的算法修炼之旅—-堆的实现与优先队列听说有些公司的面试题就是白板编一个堆，所以在这里总结一下自己对于堆的一些学习心得。 为什么需要堆？在完成队列的学习中，我们知道了队列是一种先进先出的数据结构，但是有的时候我们希望我们的出队操作是带有优先级的，能够让优先级最高的元素优先出队。比如医院看病，让最紧急的病人优先进行手术。 其实我们很自然的想到完全可以利用一个线性的数据结构保存队列，并且每次出队时扫">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap10.png">
+<meta property="og:updated_time" content="2020-05-21T14:21:18.912Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;heap1.png">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
   
@@ -131,136 +146,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-小白的算法修炼之旅-堆的实现与优先队列" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小白的算法修炼之旅---堆的实现与优先队列
+    </h1>
+  
+
+        
+        <a href="/2020/05/21/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%A0%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="archive-article-date">
+  	<time datetime="2020-05-21T07:30:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-21</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="小白的算法修炼之旅—-堆的实现与优先队列"><a href="#小白的算法修炼之旅—-堆的实现与优先队列" class="headerlink" title="小白的算法修炼之旅—-堆的实现与优先队列"></a>小白的算法修炼之旅—-堆的实现与优先队列</h1><p>听说有些公司的面试题就是白板编一个堆，所以在这里总结一下自己对于堆的一些学习心得。</p>
+<h2 id="为什么需要堆？"><a href="#为什么需要堆？" class="headerlink" title="为什么需要堆？"></a><font color="lightblue">为什么需要堆？</font></h2><p>在完成队列的学习中，我们知道了队列是一种<strong>先进先出</strong>的数据结构，但是有的时候我们希望我们的出队操作是带有优先级的，能够让优先级最高的元素优先出队。比如医院看病，让最紧急的病人优先进行手术。</p>
+<p>其实我们很自然的想到完全可以利用一个线性的数据结构保存队列，并且每次出队时扫描一遍整个队列，找到优先级最高的元素出队。此时我们的出队的时间复杂度为o(n)。</p>
+<p>但如果我们使用堆这种数据结构，我们的入队与出队的时间复杂度都可以控制在o(logn)这个级别。大大加快我们的运行速度。</p>
+<h2 id="二叉堆"><a href="#二叉堆" class="headerlink" title="二叉堆"></a><font color="lightblue">二叉堆</font></h2><p>二叉堆是一个具有特殊性质的二叉树。</p>
+<ul>
+<li>性质1: 完全二叉树</li>
+</ul>
+<p><img src="\..\images\heap1.png" alt=""></p>
+<p>缺失的节点一定位于右下侧。<br><a id="more"></a></p>
+<ul>
+<li>性质2: 父节点的值一定是大于等于孩子节点的值</li>
+</ul>
+<p><img src="\..\images\heap2.png" width=300px ></p>
+<p>图中的堆也被叫做最大堆，如果父节点的值小于子节点的堆被叫做最小堆。</p>
+<font color="orange" size=5>注意:并不是说层次较高的节点就一定大于层次较低的节点的值</font>
+
+
+<h2 id="建立索引"><a href="#建立索引" class="headerlink" title="建立索引"></a><font color="lightblue">建立索引</font></h2><p><img src="\..\images\heap3.png" width=500px ></p>
+<p>我们也可以像构建二叉树那样设置左孩子与右孩子，但是这里我们选择一个更好的方式———通过数组来表示堆。这样的好处在于我们可以快速找到当前节点的父节点的索引位置与它两个孩子节点的索引位置。</p>
+<p>从图中我们不难总结出这样的公式</p>
+<p>$parent = i/2$</p>
+<p>$leftchild = 2*i$</p>
+<p>$rightchild = 2*i+1$</p>
+<p>如果索引从零开始的话，则公式变为</p>
+<p>$parent = i-1/2$</p>
+<p>$leftchild = 2*i+1$</p>
+<p>$rightchild = 2*i+2$</p>
+<p>将上述的公式转化成代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//返回一个索引所表示的元素的父亲节点的索引</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">parent</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"index-0 does not have parent"</span>);</span><br><span class="line">    <span class="keyword">return</span> (index - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//返回一个索引所表示元素的左孩子的节点的索引</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">leftChild</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> index * <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">rightChild</span><span class="params">(<span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> index * <span class="number">2</span> + <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="向堆中添加元素——shiftup"><a href="#向堆中添加元素——shiftup" class="headerlink" title="向堆中添加元素——shiftup"></a><font color="lightblue">向堆中添加元素——shiftup</font></h2><p><img src="\..\images\heap4.png" width=500px ></p>
+<p>如图，我们现在在堆中新添加了一个元素72。由于72明显大于12，新节点的加入破坏了原来最大堆的性质，此时我们需要将当前的节点与父节点进行互换。</p>
+<p><img src="\..\images\heap5.png" width=500px ></p>
+<p>此时，72这个节点以及到达了索引2的这个位置，但是这还远远不够，因为新的父亲节点的值依然小于当前节点。故我们需要逐层进行检查并交换，直到当前的索引小于等于0(到达根节点)或者 父节点的值已经大于新加入的节点。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    data.addLast(e);</span><br><span class="line">    shiftUp(data.getSize() - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shiftUp</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; data.get(parent(k)).compareTo(data.get(k)) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        data.swap(k, parent(k));</span><br><span class="line">        k = parent(k); <span class="comment">// 在互换之后更新索引</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="向堆中取出元素——shiftdown"><a href="#向堆中取出元素——shiftdown" class="headerlink" title="向堆中取出元素——shiftdown"></a><font color="lightblue">向堆中取出元素——shiftdown</font></h2><p>在出队的操作中，我们将堆顶的最大的元素取出。并将堆最后的一个值放于堆顶。</p>
+<p><img src="\..\images\heap6.png" width=500px ></p>
+<p><img src="\..\images\heap7.png" width=500px ></p>
+<p>由于堆顶新的元素的加入，堆的性质被破坏。我们将新元素与它最大的一个孩子做交换。如图</p>
+<p><img src="\..\images\heap8.png" width=500px ></p>
+<p>此时新的堆已经成立。由于我们需要自上而下进行互换操作，故被称为shiftdown操作。<br>将上述过程用代码表示<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">extractMax</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    E ret = findMax(); <span class="comment">//取出堆顶的元素</span></span><br><span class="line">    data.swap(<span class="number">0</span>, data.getSize() - <span class="number">1</span>);</span><br><span class="line">    data.removeLast();</span><br><span class="line">    shiftDown(<span class="number">0</span>);<span class="comment">//做shiftdown操作</span></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">shiftDown</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (leftChild(k) &lt; data.getSize()) &#123; <span class="comment">//如果左孩子存在经行循环。不存在则终止</span></span><br><span class="line">        <span class="keyword">int</span> j = leftChild(k);</span><br><span class="line">        <span class="keyword">if</span> (j + <span class="number">1</span> &lt; data.getSize() &amp;&amp; data.get(j + <span class="number">1</span>).compareTo(data.get(j)) &gt; <span class="number">0</span>)</span><br><span class="line">            j = rightChild(k); <span class="comment">//如果右孩子的值大，则将右孩子的值覆盖j。</span></span><br><span class="line">        <span class="keyword">if</span> (data.get(k).compareTo(data.get(j)) &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">break</span>;<span class="comment">//如果当前父节点的值是最大的则break；</span></span><br><span class="line">        &#125;</span><br><span class="line">        data.swap(k, j);</span><br><span class="line">        k = j;<span class="comment">//更新索引</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="替换堆顶元素——replace"><a href="#替换堆顶元素——replace" class="headerlink" title="替换堆顶元素——replace"></a><font color="lightblue">替换堆顶元素——replace</font></h2><p>在之前的实现中，如果我们需要对堆顶元素经行替换。我们需要先通过extractMax方法取出了堆顶的元素，再把需要替换的值以add方法加入堆中。耗费o(2logn)的时间复杂度。其实我们完全可以直接把堆顶的元素替换成新的元素。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//查看目前堆中的最大元素</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> E <span class="title">findMax</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (data.getSize() == <span class="number">0</span>) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"heap is empty"</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> data.get(<span class="number">0</span>);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//取出堆中的最大元素，并且替换成元素e</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> E <span class="title">replace</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">       E ret = findMax();</span><br><span class="line">       data.set(<span class="number">0</span>, e);</span><br><span class="line">       shiftDown(<span class="number">0</span>);</span><br><span class="line">       <span class="keyword">return</span> ret;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="heapify"><a href="#heapify" class="headerlink" title="heapify"></a><font color="lightblue">heapify</font></h2><p>通过heapify操作，我们可以把任意的一个数组快速得变成堆。</p>
+<p><img src="\..\images\heap9.png" width=500px ></p>
+<p>我们需要找到我们这个堆最后一个节点的父节点。(利用公式 $parent = i-1/2$ )</p>
+<p>从红色的父节点开始进行shiftdown操作，然后依次是3，2，1，根节点进行shiftdown操作。<br>这里把heapify写入构造函数。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Maxheap</span><span class="params">(E[] arr)</span></span>&#123;</span><br><span class="line">    data = <span class="keyword">new</span> Array&lt;&gt;(arr);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = parent(arr.length-<span class="number">1</span>);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        shiftDown(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br><img src="\..\images\heap10.png" width=500px ></p>
+<h2 id="在java中实现最大堆"><a href="#在java中实现最大堆" class="headerlink" title="在java中实现最大堆"></a><font color="lightblue">在java中实现最大堆</font></h2><p>在java的PriorityQueue默认是一个最小堆。</p>
+<p>最大堆的实现方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PriorityQueue&lt;Integer&gt; minHeap = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;(); <span class="comment">//小顶堆</span></span><br><span class="line">PriorityQueue&lt;Integer&gt; maxHeap = <span class="keyword">new</span> PriorityQueue&lt;Integer&gt;(<span class="keyword">new</span> Comparator&lt;Integer&gt;()&#123; <span class="comment">//大顶堆</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer i1,Integer i2)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i2-i1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br>传入一个比较器 Comparator，重写compare方法返回i2-i1</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/python50%E5%9B%BE%E4%B9%8B%E6%B0%94%E6%B3%A1%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2019-12-25T05:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/python50%E5%9B%BE%E4%B9%8B%E6%B0%94%E6%B3%A1%E5%9B%BE/">python50图之气泡图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python可视化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+<!-- 开始添加阅读量-->
+
+                <span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/05/21/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%A0%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E4%B8%8E%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2019-12-24T08:10:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/05/18/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小白的算法修炼之旅---数组问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/">python可视化50图</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python可视化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/21/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2019-12-21T14:42:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/21/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">爬虫基础学习日记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -296,8 +382,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
