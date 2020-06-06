@@ -133,6 +133,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-小白的算法修炼之旅-并查集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/">小白的算法修炼之旅-并查集</a>
+    </h1>
+  
+
+        
+        <a href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="archive-article-date">
+  	<time datetime="2020-06-06T04:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一篇文章入门并查集-Union-Find"><a href="#一篇文章入门并查集-Union-Find" class="headerlink" title="一篇文章入门并查集(Union Find)"></a>一篇文章入门并查集(Union Find)</h1><p>时间忙，PPT做的图略潦草，请见谅</p>
+<h2 id="1-为什么需要并查集"><a href="#1-为什么需要并查集" class="headerlink" title="1.为什么需要并查集"></a>1.为什么需要并查集</h2><p>并查集可以快速解决联通问题。比如我们想知道像下面这张图中，任意两点是否相连，我们当然可以通过bfs与dfs求出链接的路径。但是这样做我们就多做了一些事情，因为我们其实并不需要知道他们之间是具体如何相连，而是想知道他们之间是否相连，所以答案只需回答yes或者no即可。而并查集就可以快速回答这个问题。</p>
+<image src="\..\images\union1.png" width=400px>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-小白的算法修炼之旅-一道题解决动态规划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -165,16 +250,8 @@
 <p>所以代码可得</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> end = triangle.size();</span><br><span class="line">        <span class="keyword">int</span> res = findMinPath(triangle,<span class="number">0</span>,<span class="number">0</span>,end);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findMinPath</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle,<span class="keyword">int</span> index,<span class="keyword">int</span> layers, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(layers==end) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = findMinPath(triangle,index,layers+<span class="number">1</span>,end);</span><br><span class="line">        <span class="keyword">int</span> right = findMinPath(triangle,index+<span class="number">1</span>,layers+<span class="number">1</span>,end);</span><br><span class="line">        <span class="keyword">return</span> triangle.get(layers).get(index)+Math.min(left,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>递归的终止条件为，当访问的地方已经超出了原三角形的底边位置则一律返回0。</p>
-<p>目前程序的问题在于经过了大量的重复计算。</p>
-<p><br></p>
-<h2 id="解法二-带记忆的递归"><a href="#解法二-带记忆的递归" class="headerlink" title="解法二 带记忆的递归"></a>解法二 带记忆的递归</h2><p>这次我们使用二维数组来保存已经计算过的值。长宽均为三角形的size的方阵。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> end = triangle.size();</span><br><span class="line">        <span class="keyword">int</span>[][] memo = <span class="keyword">new</span> <span class="keyword">int</span>[end][end];</span><br><span class="line">        <span class="keyword">return</span> findMinPath(triangle,<span class="number">0</span>,<span class="number">0</span>,end,memo);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findMinPath</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle,<span class="keyword">int</span> index,<span class="keyword">int</span> layers, <span class="keyword">int</span> end,<span class="keyword">int</span>[][]memo)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(layers==end-<span class="number">1</span>) &#123;</span><br><span class="line">            memo[layers][index] = triangle.get(layers).get(index);</span><br><span class="line">            <span class="keyword">return</span> memo[layers][index];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left,right;</span><br><span class="line">        <span class="keyword">if</span>(memo[layers+<span class="number">1</span>][index]==<span class="number">0</span>) memo[layers+<span class="number">1</span>][index] = findMinPath(triangle,index,layers+<span class="number">1</span>,end,memo);</span><br><span class="line">        left = memo[layers+<span class="number">1</span>][index];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(memo[layers+<span class="number">1</span>][index+<span class="number">1</span>]==<span class="number">0</span>) memo[layers+<span class="number">1</span>][index+<span class="number">1</span>] = findMinPath(triangle,index+<span class="number">1</span>,layers+<span class="number">1</span>,end,memo);</span><br><span class="line">        right = memo[layers+<span class="number">1</span>][index+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> triangle.get(layers).get(index)+Math.min(left,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对递归的终止条件也适当优化，当我们访问到三角形最底一层时，返回最底层权重即可。</p>
-<p><br></p>
-<h2 id="解法三-自底向上动态规划"><a href="#解法三-自底向上动态规划" class="headerlink" title="解法三 自底向上动态规划"></a>解法三 自底向上动态规划</h2><p>我们可以先设计一个长短都等于三角形大小的方正。让方正的最底端等于给出的对应位置的三角形的权重。<br>从倒数第二层开始，f[x][y] = f[x-1][y] + f[x-1][y+1]</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> len = triangle.size();</span><br><span class="line">        <span class="keyword">int</span>[][] memo = <span class="keyword">new</span> <span class="keyword">int</span>[len][len];</span><br><span class="line">        <span class="keyword">int</span> layer = len-<span class="number">1</span>; <span class="comment">//最后一层</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">            memo[layer][i] = triangle.get(layer).get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        layer--;</span><br><span class="line">        len--;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(layer&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)&#123;</span><br><span class="line">                memo[layer][j] = Math.min(memo[layer+<span class="number">1</span>][j],memo[layer+<span class="number">1</span>][j+<span class="number">1</span>])+triangle.get(layer).get(j);</span><br><span class="line">            &#125;</span><br><span class="line">            len--;</span><br><span class="line">            layer--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> memo[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>由下往上逐渐填满方正对应的三角部分。顶点的数值即为答案。</p>
-
+<p>目前程序的问题在于经过了大量的重复计算。<br>
+        
       
 
       
