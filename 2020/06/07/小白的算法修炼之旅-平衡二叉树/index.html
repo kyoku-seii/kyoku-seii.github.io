@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/6 | 王旭成的博客</title>
+  <title>小白的算法修炼之旅-平衡二叉树 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王旭成的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2020&#x2F;06&#x2F;index.html">
+  <meta name="description" content="对于平衡二叉树的一些简单总结1.什么是平衡二叉树对于任意一个节点，左子树和右子树的高度差不能超过1 一个节点的高度=max(左子树高度，右子树高度)+1  所以我们引入了平衡因子这个概念，平衡因子 = 左子树高度-右子树的高度 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 左右两张图分别是各个结点的的高度与平衡因子。">
+<meta name="keywords" content="算法修炼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白的算法修炼之旅-平衡二叉树">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;07&#x2F;%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
+<meta property="og:description" content="对于平衡二叉树的一些简单总结1.什么是平衡二叉树对于任意一个节点，左子树和右子树的高度差不能超过1 一个节点的高度=max(左子树高度，右子树高度)+1  所以我们引入了平衡因子这个概念，平衡因子 = 左子树高度-右子树的高度 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 左右两张图分别是各个结点的的高度与平衡因子。">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-06-07T11:16:51.875Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
@@ -131,36 +135,55 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-小白的算法修炼之旅-平衡二叉树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      小白的算法修炼之旅-平衡二叉树
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
+
+        
+        <a href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
   	<time datetime="2020-06-07T07:02:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">小白的算法修炼之旅-平衡二叉树</a>
-    </h1>
-  
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对于平衡二叉树的一些简单总结"><a href="#对于平衡二叉树的一些简单总结" class="headerlink" title="对于平衡二叉树的一些简单总结"></a>对于平衡二叉树的一些简单总结</h1><h2 id="1-什么是平衡二叉树"><a href="#1-什么是平衡二叉树" class="headerlink" title="1.什么是平衡二叉树"></a>1.什么是平衡二叉树</h2><p><strong>对于任意一个节点，左子树和右子树的高度差不能超过1</strong></p>
+<font size=2px>一个节点的高度=max(左子树高度，右子树高度)+1</font>
 
-        <div class="article-info info-on-right">
-          
+<p>所以我们引入了平衡因子这个概念，平衡因子 = 左子树高度-右子树的高度</p>
+<p><image src="\..\images\AVL1.png" width=400px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image src="\..\images\AVL2.png" width=400px></p>
+<p>左右两张图分别是各个结点的的高度与平衡因子。<br><a id="more"></a></p>
+<h2 id="2-基本旋转操作"><a href="#2-基本旋转操作" class="headerlink" title="2.基本旋转操作"></a>2.基本旋转操作</h2><h3 id="一-右旋操作-LL"><a href="#一-右旋操作-LL" class="headerlink" title="一 右旋操作(LL)"></a>一 右旋操作(LL)</h3><p>Q.何时需要右旋？<br><br>之前均为平衡状态，当在左侧添加一个节点之后，一颗树(或者子树)的根节点的负载因子大于1，并且它的左节点的负载因子大于等于0，说明整棵树的结构是向左倾斜的。</p>
+<p><image src="\..\images\AVL3.png" width=400px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image src="\..\images\AVL4.png" width=400px></p>
+<p>我们让y的右节点接上x，并让x的左节点指向t3，此时这棵树既满足了两分搜索树的性质，又满足了平衡二叉树的性质。<br><br>(这边让t的高度都相同了，但如果t之间的高度不同其实依然满足平衡的性质，这边就不详细证明了。)</p>
+<h3 id="二-左旋操作-RR"><a href="#二-左旋操作-RR" class="headerlink" title="二 左旋操作(RR)"></a>二 左旋操作(RR)</h3><p>Q.何时需要左旋操作。<br><br>当在右侧添加一个节点之后，一颗树(或者子树)的根节点的负载因子小于-1，并且它的左节点的负载因子小于等于0，说明整棵树的结构是向右倾斜的。</p>
+<p><image src="\..\images\AVL5.png" width=400px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image src="\..\images\AVL6.png" width=400px></p>
+<p>X.left = Y Y.right = T3 操作之后，此时树既满足了两分搜索树的性质，又满足了平衡二叉树的性质。R</p>
+<h3 id="三-LR"><a href="#三-LR" class="headerlink" title="三 LR"></a>三 LR</h3><p>当我们添加一个节点导致根节点不平衡，并且添加的位置位于左孩子的右侧，此时我们就形成了LR的情况。我们对x节点经行一次左旋转，将问题转换为了LL。并依照之前处理LL的情况处理。</p>
+<image src="\..\images\AVL7.png" width=600px>
+
+<h3 id="四-RL"><a href="#四-RL" class="headerlink" title="四 RL"></a>四 RL</h3><p>同理可得，先对x右旋再对整体左旋</p>
+<image src="\..\images\AVL8.png" width=600px>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -172,57 +195,115 @@
 		</ul>
 	</div>
 
-          
 
+<!-- 开始添加阅读量-->
+
+                <span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-06-06T04:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小白的算法修炼之旅-并查集</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/">小白的算法修炼之旅-并查集</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -258,8 +339,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
