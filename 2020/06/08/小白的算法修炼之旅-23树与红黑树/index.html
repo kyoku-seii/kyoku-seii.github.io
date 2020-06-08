@@ -6,14 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/12 | 王旭成的博客</title>
+  <title>小白的算法修炼之旅-23树与红黑树 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王旭成的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;12&#x2F;index.html">
+  <meta name="description" content="二三树与红黑树谈一下自己对于红黑树与2-3树的浅显理解。(网上的好多文章根本就没讲到点子上，看得我好着急。。。) 《算法导论》 中关于红黑树的定义  每个节点或者是红色或者是黑色 根节点是黑色的 每一个叶子节点是黑色的 如果一个节点是红色的，那么它的孩子节点是黑的 从任意一个节点到孩子节点，经过的黑色节点是一样的  什么是2-3树在学习2分搜索树时，我们使让节点分别指向了左节点与右节点，左侧的节点">
+<meta name="keywords" content="算法修炼">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小白的算法修炼之旅-23树与红黑树">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;08&#x2F;%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-23%E6%A0%91%E4%B8%8E%E7%BA%A2%E9%BB%91%E6%A0%91&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
+<meta property="og:description" content="二三树与红黑树谈一下自己对于红黑树与2-3树的浅显理解。(网上的好多文章根本就没讲到点子上，看得我好着急。。。) 《算法导论》 中关于红黑树的定义  每个节点或者是红色或者是黑色 根节点是黑色的 每一个叶子节点是黑色的 如果一个节点是红色的，那么它的孩子节点是黑的 从任意一个节点到孩子节点，经过的黑色节点是一样的  什么是2-3树在学习2分搜索树时，我们使让节点分别指向了左节点与右节点，左侧的节点">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree02.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree03.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree04.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree05.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree06.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree07.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;RB01.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;RB02.png">
+<meta property="og:updated_time" content="2020-06-08T09:54:03.187Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;23tree01.png">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
   
@@ -131,136 +145,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-小白的算法修炼之旅-23树与红黑树" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小白的算法修炼之旅-23树与红黑树
+    </h1>
+  
+
+        
+        <a href="/2020/06/08/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-23%E6%A0%91%E4%B8%8E%E7%BA%A2%E9%BB%91%E6%A0%91/" class="archive-article-date">
+  	<time datetime="2020-06-08T05:39:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-08</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="二三树与红黑树"><a href="#二三树与红黑树" class="headerlink" title="二三树与红黑树"></a>二三树与红黑树</h1><p>谈一下自己对于红黑树与2-3树的浅显理解。<br>(网上的好多文章根本就没讲到点子上，看得我好着急。。。)</p>
+<p>《算法导论》 中关于红黑树的定义</p>
+<ul>
+<li>每个节点或者是红色或者是黑色</li>
+<li>根节点是黑色的</li>
+<li>每一个叶子节点是黑色的</li>
+<li>如果一个节点是红色的，那么它的孩子节点是黑的</li>
+<li>从任意一个节点到孩子节点，经过的黑色节点是一样的</li>
+</ul>
+<h1 id="什么是2-3树"><a href="#什么是2-3树" class="headerlink" title="什么是2-3树"></a>什么是2-3树</h1><p>在学习2分搜索树时，我们使让节点分别指向了左节点与右节点，左侧的节点的值小于根，而右侧节点的值大于根。在2-3树中除了上述提到的2节点。还有一种三节点，<br>在三节点中根有两个值，其中左孩子小于左边的值，右孩子大于右边的值。而介于两者中间的值被存放在了正中间的位置。如图</p>
+<p><img src="/../images/23tree01.png" width=600px></p>
+<p><strong>23树是一种绝对平衡的树，它的左右子树高度差为0，并且从根节点到任意一个叶子节点所经过节点数相同</strong></p>
+<a id="more"></a>
+<h1 id="2-3树的添加过程"><a href="#2-3树的添加过程" class="headerlink" title="2-3树的添加过程"></a>2-3树的添加过程</h1><p>之所以2-3树可以保持一种绝对平衡的性质，与其添加过程的操作息息相关。</p>
+<font size=5px color="red">在2-3树中添加一个节点时，永远不会在一个空的位置添加。</font>
+
+<p>比如说，我们想在52这样的一个节点中添加44，按照二分搜索树的理论，我们应该把44添加在55的左下侧，但是由于2-3树中永远无法在空位置添加节点，故两个节点会粘合成3节点</p>
+<p><img src="/../images/23tree02.png" width=600px></p>
+<p>同样的在添加62时，会先于之前的节点粘合成一个四节点，随后分裂成一个2叉树的形状，有3个2节点。</p>
+<p><img src="/../images/23tree03.png" width=800px></p>
+<p>随后我们在这颗树中添加18与47这两个节点，在左下侧会暂时形成一个四节点。随后我们把4节点展开，此时树已经不再平衡了。同时我们把44向上推与52节点做融合。最后依然得到一颗绝对平衡的23树。</p>
+<p><img src="/../images/23tree04.png" width=800px></p>
+<p><img src="/../images/23tree05.png" width=800px></p>
+<p>相对比较麻烦的情况是，如果原先根节点已经是3节点的情况下如图。当我们把节点向上推时，会发现根节点也变成了4节点，那么此时我们把根节点也向上推起，完成变换。</p>
+<p><img src="/../images/23tree06.png" width=800px></p>
+<p><img src="/../images/23tree07.png" width=800px></p>
+<h1 id="红黑树与23树的等价性"><a href="#红黑树与23树的等价性" class="headerlink" title="红黑树与23树的等价性"></a>红黑树与23树的等价性</h1><p>23一个不太好的点在于，它的一个节点存放了两个值。而我们希望的是一个节点只存放一个值，所以使用红黑树来等价表示2-3树。把2节点表示成黑色的节点，把3节点表示成一个红节点接在黑节点的左侧。</p>
+<p><img src="/../images/RB01.png" width=600px></p>
+<p><img src="/../images/RB02.png" width=800px></p>
+<p>所以左边这颗树就可以完全等效成红黑树。而这样形成的树就时一颗完全黑平衡的树。此时我们再看来红黑树的五个性质。</p>
+<ul>
+<li>每个节点或者是红色或者是黑色(毫无问题)</li>
+<li>根节点是黑色的(如果是2节点则自然是黑色，如果是3节点右边黑节点会被顶上自然满足条件)</li>
+<li>每一个叶子节点是黑色的(设定这里的叶子节点是指null节点)</li>
+<li>如果一个节点是红色的，那么它的孩子节点是黑的(孩子无论是2节点还是3节点都是黑色)</li>
+<li>从任意一个节点到孩子节点，经过的黑色节点是一样的(绝对黑平衡自然数量一样)</li>
+</ul>
+<p>结合图发现这五个性质完全不难理解。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/25/python50%E5%9B%BE%E4%B9%8B%E6%B0%94%E6%B3%A1%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2019-12-25T05:26:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/25/python50%E5%9B%BE%E4%B9%8B%E6%B0%94%E6%B3%A1%E5%9B%BE/">python50图之气泡图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python可视化</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
 
+<!-- 开始添加阅读量-->
+
+                <span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/08/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-23%E6%A0%91%E4%B8%8E%E7%BA%A2%E9%BB%91%E6%A0%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2019-12-24T08:10:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">小白的算法修炼之旅-平衡二叉树</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/24/python%E5%8F%AF%E8%A7%86%E5%8C%9650%E5%9B%BE/">python可视化50图</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">python可视化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/21/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2019-12-21T14:42:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/21/%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">爬虫基础学习日记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -296,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

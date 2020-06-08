@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王旭成的博客">
 <meta property="og:description" content="对于平衡二叉树的一些简单总结1.什么是平衡二叉树对于任意一个节点，左子树和右子树的高度差不能超过1 一个节点的高度=max(左子树高度，右子树高度)+1  所以我们引入了平衡因子这个概念，平衡因子 = 左子树高度-右子树的高度 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; 左右两张图分别是各个结点的的高度与平衡因子。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-06-07T11:16:51.875Z">
+<meta property="og:updated_time" content="2020-06-07T11:19:33.908Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
@@ -170,7 +170,7 @@
 <p>我们让y的右节点接上x，并让x的左节点指向t3，此时这棵树既满足了两分搜索树的性质，又满足了平衡二叉树的性质。<br><br>(这边让t的高度都相同了，但如果t之间的高度不同其实依然满足平衡的性质，这边就不详细证明了。)</p>
 <h3 id="二-左旋操作-RR"><a href="#二-左旋操作-RR" class="headerlink" title="二 左旋操作(RR)"></a>二 左旋操作(RR)</h3><p>Q.何时需要左旋操作。<br><br>当在右侧添加一个节点之后，一颗树(或者子树)的根节点的负载因子小于-1，并且它的左节点的负载因子小于等于0，说明整棵树的结构是向右倾斜的。</p>
 <p><image src="\..\images\AVL5.png" width=400px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image src="\..\images\AVL6.png" width=400px></p>
-<p>X.left = Y Y.right = T3 操作之后，此时树既满足了两分搜索树的性质，又满足了平衡二叉树的性质。R</p>
+<p>X.left = Y Y.right = T3 操作之后，此时树既满足了两分搜索树的性质，又满足了平衡二叉树的性质。</p>
 <h3 id="三-LR"><a href="#三-LR" class="headerlink" title="三 LR"></a>三 LR</h3><p>当我们添加一个节点导致根节点不平衡，并且添加的位置位于左孩子的右侧，此时我们就形成了LR的情况。我们对x节点经行一次左旋转，将问题转换为了LL。并依照之前处理LL的情况处理。</p>
 <image src="\..\images\AVL7.png" width=600px>
 
@@ -267,6 +267,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/06/08/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-23%E6%A0%91%E4%B8%8E%E7%BA%A2%E9%BB%91%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          小白的算法修炼之旅-23树与红黑树
+        
+      </div>
+    </a>
   
   
     <a href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
@@ -569,9 +578,9 @@ MathJax.Hub.Queue(function() {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
