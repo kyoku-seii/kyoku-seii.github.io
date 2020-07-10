@@ -17,7 +17,7 @@
 <meta property="og:description" content="浏览器的渲染过程是怎么样的？ 谷歌工程师们的解答  浏览器的渲染过程 根据HTML构建HTML树（DOM） 根据CSS构建CSS树（CSSOM） 将两颗树合并成一颗渲染树（渲染树只包含渲染网页所需的节点。） Layout布局(文档流、盒模型、计算大小和位置) Paint绘制（把边框颜色、文字颜色、阴影等画出来） Compose合成（根据层叠关系展示画面）">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;css1.png">
-<meta property="og:updated_time" content="2020-07-10T12:23:06.058Z">
+<meta property="og:updated_time" content="2020-07-10T12:28:34.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;css1.png">
   
@@ -173,10 +173,10 @@
 <li>Compose合成（根据层叠关系展示画面）</li>
 </ul>
 <p><img src="/../images/css1.png"><br><a id="more"></a></p>
-<p>也就是说我们的浏览器先会将CSSOM 树和 DOM 树合并成渲染树，然后用于计算每个可见元素的<strong>布局</strong>，之后对各个元素进行<strong>绘制</strong>,最后<strong>合并</strong>将像素渲染到屏幕上。所以我们的优化，也就是对上述的每一个步骤经行优化，从而提升渲染性能。</p>
-<h2 id="对样式进行更新会发生哪些步骤"><a href="#对样式进行更新会发生哪些步骤" class="headerlink" title="对样式进行更新会发生哪些步骤"></a>对样式进行更新会发生哪些步骤</h2><ul>
-<li><strong>第一种 布局-&gt;绘制-&gt;合成</strong> 比如div.remove()将会改变当前节点的布局，故需要重新布局</li>
-<li><strong>第二种 绘制-&gt;合成</strong> 比如div.style.background=””只是改变了一个元素的背景颜色，不需要进行重新布局了</li>
+<p>也就是说我们的浏览器先会将CSSOM 树和 DOM 树合并成渲染树，然后计算每个可见元素的<strong>布局</strong>，之后对各个元素进行<strong>绘制</strong>,最后<strong>合并</strong>将像素渲染到屏幕上。所以我们的优化，也就是对上述的每一个步骤进行优化。</p>
+<h2 id="改变样式会触发哪些流程"><a href="#改变样式会触发哪些流程" class="headerlink" title="改变样式会触发哪些流程"></a>改变样式会触发哪些流程</h2><ul>
+<li><strong>第一种 布局-&gt;绘制-&gt;合成</strong> 比如div.remove()将会改变当前页面的布局，故浏览器需要重新布局</li>
+<li><strong>第二种 绘制-&gt;合成</strong> 比如div.style.background=””只是改变了一个元素的背景颜色，就不需要进行重新布局了</li>
 <li><strong>第三种 合成</strong> 比如改变transform，改变中途不需要渲染直接合成就可以了。</li>
 </ul>
 <blockquote>
@@ -186,7 +186,7 @@
 <li>第一种：transition 过渡</li>
 <li>第二种：animation 动画</li>
 </ul>
-<h2 id="transition详解"><a href="#transition详解" class="headerlink" title="transition详解"></a>transition详解</h2><p>transition的作用是为我们补充中间帧。好处就是对于我们要移动的对象我们一般不需要重新的布局与绘制，相比于用js改变属性的方式大大提升了性能。</p>
+<h2 id="transition详解"><a href="#transition详解" class="headerlink" title="transition详解"></a>transition详解</h2><p>transition的作用是为我们补充中间帧。好处就是对于我们要移动的对象，我们一般不需要重新的布局与绘制，相比于用js改变属性的方式大大提升了性能。</p>
 <ul>
 <li>transition语法: 属性名 | 时长 | 过渡方式 | 延迟<br>比如<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transition</span>: <span class="selector-tag">all</span> 200<span class="selector-tag">ms</span> <span class="selector-tag">linear</span></span><br></pre></td></tr></table></figure>
 表示所有要改变的属性在2毫秒之内按线性匀速进行变化。常用的有ease，ease-in-out等，具体参考MDN。</li>
@@ -195,12 +195,12 @@
 
 <p>比如想要实现一个物体慢慢消失。display:none ==&gt; block 是无法过度的。若要实现一个物体的逐渐消失可以采用以下的代码。<br><a href="https://jsbin.com/qelugeleka/1/edit?html,css,js,output" target="_blank" rel="noopener">link</a></p>
 <h2 id="animation-动画"><a href="#animation-动画" class="headerlink" title="animation 动画"></a>animation 动画</h2><p>使用方法:1.声明关键帧2添加动画</p>
-<h3 id="两种写法"><a href="#两种写法" class="headerlink" title="两种写法"></a>两种写法</h3><ol>
+<h3 id="声明关键帧的两种写法"><a href="#声明关键帧的两种写法" class="headerlink" title="声明关键帧的两种写法"></a>声明关键帧的两种写法</h3><ol>
 <li>标准写法 from/to<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> 动画名 &#123;</span><br><span class="line">  <span class="selector-tag">from</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(0%);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(100%);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>百分数表示<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">keyframes</span> 动画名 &#123;</span><br><span class="line">  0% &#123; <span class="attribute">transform</span>:none &#125;</span><br><span class="line">  100% &#123; <span class="attribute">transform</span>: <span class="built_in">translateX</span>(100%); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h3>animation：动画名 | 时长 | 过渡方式 | 延迟 | 次数 | 方向 | 填充模式 | 是否暂停 |</li>
 </ol>
-<p>对次数设定<strong>infinite</strong>（无限循环,方向设定alternate (默认正常方向循环)配合无限次数，可以实现无限加载的动画效果。</p>
+<p>对次数设定<strong>infinite</strong>（无次变化),动画方向设定alternate (默认正常方向循环)配合无限次数就可以实现类似加载的动画效果。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>动画有两种制作方式，一种是使用transform补帧。另一种是利用animation。对关键帧进行设定。</p>
 <p><a href="https://wangxucheng1995.github.io/http-homework/heart2.html" target="_blank" rel="noopener">css动画跳动的心</a></p>
 
