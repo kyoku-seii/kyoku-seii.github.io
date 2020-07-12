@@ -179,26 +179,8 @@
 </blockquote>
 <p>目前服务器主要采用<strong>HTTP</strong>（HyperText Transfer Protocol,超文本传输协议)与<strong>HTTPS</strong>（Hyper Text Transfer Protocol over SecureSocket Layer,超文本传输安全协议）</p>
 <h2 id="什么是ip"><a href="#什么是ip" class="headerlink" title="什么是ip"></a>什么是ip</h2><p>IP地址（英语：Internet Protocol Address）是一种在Internet上的给主机编址的方式，也称为网际协议地址。也就是说只要你在互联网中你就会有至少1个ip地址。常见的IP地址，分为IPv4与IPv6两大类。</p>
-<h2 id="什么是内网ip与外网ip"><a href="#什么是内网ip与外网ip" class="headerlink" title="什么是内网ip与外网ip"></a>什么是内网ip与外网ip</h2><p><img src="/../images/ip1.png"></p>
-<p>如图所示，图中红色的global ip指的就是外网，通过“光猫”连接上外面的服务器时，路由器就会自动获得「外网IP」，比如「221.242.76.xxx」就是一个外网IP，这个IP地址表示你在互联网中的位置并且所有的通过路由器连接设备都是同一个外网IP地址。<br>而内网IP就是图中的蓝色部分，一般来说内网IP格式为「http : //192.168.xxx.xxx」，一般路由器自己的内网ip为「192.168.1.1」,之后路由器会给每一个内网中的设备分配一个不同的内网IP，如电脑是192.168.1.2，手机是192.168.1.3，以此类推。<br>内网中的设备可以相互访问，但不能直接访问外网。而内网设备想要访问外网，就必须经过路由器中转。外网中的设备可以互相访问，但无法直接访问内网设备，外网设备想要把内容送到内网，也必须通过路由器，故路由器也被叫做网关。<br>在众多ip中的，127.0.0.1表示自己 localhost（通过hosts指定为自己） 0.0.0.0不表示任何设备。</p>
-<h2 id="什么是域名"><a href="#什么是域名" class="headerlink" title="什么是域名"></a>什么是域名</h2><p>域名就是IP的别称，ip与域名通过DNS连结。一个域名可以对应不同的IP(均衡负载),一个IP可以对应不同域名(共享主机)<br><strong>在终端输入ping指令可查询对应地址的ip</strong></p>
-<blockquote>
-<p>C:\Users\XXXX&gt; ping qq.com<br>Pinging qq.com <strong>[125.39.52.26]</strong> with 32 bytes of data:<br>Reply from 125.39.52.26: bytes=32 time=156ms TTL=45</p>
-</blockquote>
-<h2 id="什么是端口"><a href="#什么是端口" class="headerlink" title="什么是端口"></a>什么是端口</h2><p>URL的作用是定位服务器比如定位百度服务器，定位到了服务器之后，我们就需要找到对应的窗口(端口)来办理我们的服务。<br>比如80端口提供HTTP（超文本传输协议）服务<br>比如443端口提供HTTPS（超文本传输安全协议）服务<br>比如20，21端口提供FTP（文件传输协议）服务</p>
-<h2 id="什么是DNS"><a href="#什么是DNS" class="headerlink" title="什么是DNS"></a>什么是DNS</h2><p>DNS全称为Domain Name System，域名系统。<br>当我们在浏览器输入百度的网址之后发生了什么呢？</p>
-<ul>
-<li>在Chrome浏览器下输入http : //baidu.com后，先经过路由器向外网的（电信/联通提供的DNS服务器）发出询问，询问内容就是http : //baidu.com所对应的IP地址</li>
-<li>电信/联通提供的DNS服务器收到请求后，就会回答一个IP地址</li>
-<li>然后Chrome浏览器把回答的IP地址和以及IP对应的端口（80/443端口）再次通过路由器向对应的服务器发送请求</li>
-<li>请求内容：查看http : //baidu.com的页面</li>
-<li>服务器通过路由器再传回给浏览器（HTML、CSS、JS等）</li>
-<li>最终我们就可以看到http : //baidu.com的页面了<br><strong>在终端输入nslookup指令可查询对应域名的所有ip</strong><blockquote>
-<p>C:\Users\xxx&gt;nslookup baidu.com<br>Non-authoritative answer:<br>Name:    baidu.com<br>Addresses:  39.156.69.79<br>220.181.38.148</p>
-</blockquote>
-</li>
-</ul>
-
+<h2 id="什么是内网ip与外网ip"><a href="#什么是内网ip与外网ip" class="headerlink" title="什么是内网ip与外网ip"></a>什么是内网ip与外网ip</h2><p><img src="/../images/ip1.png"><br>
+        
       
 
       
