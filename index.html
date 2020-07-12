@@ -133,6 +133,129 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浅谈url" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/12/%E6%B5%85%E8%B0%88url/">浅谈url</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/12/%E6%B5%85%E8%B0%88url/" class="archive-article-date">
+  	<time datetime="2020-07-12T03:48:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-12</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="WWW是什么"><a href="#WWW是什么" class="headerlink" title="WWW是什么"></a>WWW是什么</h1><p>万维网（WWW）被蒂姆·伯纳斯-李(Tim Berners-Lee)李爵士所发明，www其实是由三个部分组成的。</p>
+<blockquote>
+<p>WWW=URl+HTTP+HTML</p>
+<ul>
+<li>URL全称为Uniform Resource Locator（统一资源定位符）</li>
+<li>HTTP全称为 HyperText Transfer Protocol（超文本传输协议）</li>
+<li>HTML全称为HyperText Markup Language （超文本标记语言）</li>
+</ul>
+</blockquote>
+<h2 id="URL的组成"><a href="#URL的组成" class="headerlink" title="URL的组成"></a>URL的组成</h2><p>其实我们通常输入的网址就是URL。比如输入</p>
+<blockquote>
+<p><a href="https://www.baidu.com/s?wd=hi&amp;rsv_spt=1#5" target="_blank" rel="noopener">https://www.baidu.com/s?wd=hi&amp;rsv_spt=1#5</a> 其中</p>
+<ul>
+<li>http:// 部分表示协议</li>
+<li>www.baidu.com 部分表示域名</li>
+<li>/s 表示路径</li>
+<li>?wd=hi&amp;rsv_spt=1 表示查询参数</li>
+<li>/#5 表示锚点</li>
+</ul>
+</blockquote>
+<p>目前服务器主要采用<strong>HTTP</strong>（HyperText Transfer Protocol,超文本传输协议)与<strong>HTTPS</strong>（Hyper Text Transfer Protocol over SecureSocket Layer,超文本传输安全协议）</p>
+<h2 id="什么是ip"><a href="#什么是ip" class="headerlink" title="什么是ip"></a>什么是ip</h2><p>IP地址（英语：Internet Protocol Address）是一种在Internet上的给主机编址的方式，也称为网际协议地址。也就是说只要你在互联网中你就会有至少1个ip地址。常见的IP地址，分为IPv4与IPv6两大类。</p>
+<h2 id="什么是内网ip与外网ip"><a href="#什么是内网ip与外网ip" class="headerlink" title="什么是内网ip与外网ip"></a>什么是内网ip与外网ip</h2><p><img src="/../images/ip1.png"></p>
+<p>如图所示，图中红色的global ip指的就是外网，通过“光猫”连接上外面的服务器时，路由器就会自动获得「外网IP」，比如「221.242.76.xxx」就是一个外网IP，这个IP地址表示你在互联网中的位置并且所有的通过路由器连接设备都是同一个外网IP地址。<br>而内网IP就是图中的蓝色部分，一般来说内网IP格式为「http : //192.168.xxx.xxx」，一般路由器自己的内网ip为「192.168.1.1」,之后路由器会给每一个内网中的设备分配一个不同的内网IP，如电脑是192.168.1.2，手机是192.168.1.3，以此类推。<br>内网中的设备可以相互访问，但不能直接访问外网。而内网设备想要访问外网，就必须经过路由器中转。外网中的设备可以互相访问，但无法直接访问内网设备，外网设备想要把内容送到内网，也必须通过路由器，故路由器也被叫做网关。<br>在众多ip中的，127.0.0.1表示自己 localhost（通过hosts指定为自己） 0.0.0.0不表示任何设备。</p>
+<h2 id="什么是域名"><a href="#什么是域名" class="headerlink" title="什么是域名"></a>什么是域名</h2><p>域名就是IP的别称，ip与域名通过DNS连结。一个域名可以对应不同的IP(均衡负载),一个IP可以对应不同域名(共享主机)<br><strong>在终端输入ping指令可查询对应地址的ip</strong></p>
+<blockquote>
+<p>C:\Users\XXXX&gt; ping qq.com<br>Pinging qq.com <strong>[125.39.52.26]</strong> with 32 bytes of data:<br>Reply from 125.39.52.26: bytes=32 time=156ms TTL=45</p>
+</blockquote>
+<h2 id="什么是端口"><a href="#什么是端口" class="headerlink" title="什么是端口"></a>什么是端口</h2><p>URL的作用是定位服务器比如定位百度服务器，定位到了服务器之后，我们就需要找到对应的窗口(端口)来办理我们的服务。<br>比如80端口提供HTTP（超文本传输协议）服务<br>比如443端口提供HTTPS（超文本传输安全协议）服务<br>比如20，21端口提供FTP（文件传输协议）服务</p>
+<h2 id="什么是DNS"><a href="#什么是DNS" class="headerlink" title="什么是DNS"></a>什么是DNS</h2><p>DNS全称为Domain Name System，域名系统。<br>当我们在浏览器输入百度的网址之后发生了什么呢？</p>
+<ul>
+<li>在Chrome浏览器下输入http : //baidu.com后，先经过路由器向外网的（电信/联通提供的DNS服务器）发出询问，询问内容就是http : //baidu.com所对应的IP地址</li>
+<li>电信/联通提供的DNS服务器收到请求后，就会回答一个IP地址</li>
+<li>然后Chrome浏览器把回答的IP地址和以及IP对应的端口（80/443端口）再次通过路由器向对应的服务器发送请求</li>
+<li>请求内容：查看http : //baidu.com的页面</li>
+<li>服务器通过路由器再传回给浏览器（HTML、CSS、JS等）</li>
+<li>最终我们就可以看到http : //baidu.com的页面了<br><strong>在终端输入nslookup指令可查询对应域名的所有ip</strong><blockquote>
+<p>C:\Users\xxx&gt;nslookup baidu.com<br>Non-authoritative answer:<br>Name:    baidu.com<br>Addresses:  39.156.69.79<br>220.181.38.148</p>
+</blockquote>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">科普知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/12/%E6%B5%85%E8%B0%88url/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-重学css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -946,95 +1069,6 @@
 
 
   
-    <article id="post-小白的算法修炼之旅-数组问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/18/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/">小白的算法修炼之旅---数组问题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/18/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-05-18T13:19:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
-</a>
-        
-        
-<!-- 开始添加字数统计-->
-              
-<!-- 添加完成 -->        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="小白的算法修炼之旅—-数组问题篇"><a href="#小白的算法修炼之旅—-数组问题篇" class="headerlink" title="小白的算法修炼之旅—-数组问题篇"></a>小白的算法修炼之旅—-数组问题篇</h1><blockquote>
-<p>写在前面:<br>这个系列主要是记录一下自己刷leetcode时遇到的有代表性的问题以及他们的解法。在文章中不会罗列大量的解法代码，因为这些解法在leetcode上到处都是，各种大神的炫酷一行解法。这边写博客的目的在于强调被大家忽视的这些题目本质，即解决这些问题的核心注意点与思路。所以不会把leetcode上的每个问题都写成文章，而是选择一些重点的题目来讲解。也是对自己学习的总结吧。</p>
-<p>同时对于一些简单的，能够用一两局话就说明白的题目。我把自己的笔记做在了另一个github仓库中，详情请参考&nbsp;&nbsp;&nbsp;<a href="https://github.com/wangxucheng1995/LeetCode/blob/master/note.md" target="_blank" rel="noopener">leetcode 做题笔记——简洁版(复习用)</a></p>
-</blockquote>
-<h2 id="75-颜色分类"><a href="#75-颜色分类" class="headerlink" title="75. 颜色分类"></a>75. 颜色分类</h2><p><img src="/../images/75.png" width=300px></p>
-<p>对于这个问题，我们很自然的会想到使用三个指针来分别表示各个颜色的范围。如图</p>
-<p><img src="/../images/sort_color.png" width=300px></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/18/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E6%95%B0%E7%BB%84%E9%97%AE%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1158,11 +1192,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,6 +1205,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">算法修炼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
               </li>
              
               <li class="article-tag-list-item">
