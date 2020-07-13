@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>js对象的基本用法 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言js中的7种数据类型:number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象五个false值:undefined null 0 NaN ‘’  浅淡js对象的基本用法如何声明一个对象声明对象由以下两种做法,其中键名会以字符串形式保存12let obj=&amp;#123;&amp;apos;name&amp;apos;:&amp;apos;frank&amp;apos;,&amp;apos;age&amp;apos;:18&amp;#">
+  <meta name="description" content="前言js中的7种数据类型:number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象五个false值:undefined null 0 NaN ‘’  浅淡js对象的基本用法如何声明一个对象声明对象有以下两种做法,其中键名会以字符串形式保存12let obj=&amp;#123;&amp;apos;name&amp;apos;:&amp;apos;frank&amp;apos;,&amp;apos;age&amp;apos;:18&amp;#">
 <meta name="keywords" content="js学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js对象的基本用法">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;13&#x2F;js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
-<meta property="og:description" content="前言js中的7种数据类型:number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象五个false值:undefined null 0 NaN ‘’  浅淡js对象的基本用法如何声明一个对象声明对象由以下两种做法,其中键名会以字符串形式保存12let obj=&amp;#123;&amp;apos;name&amp;apos;:&amp;apos;frank&amp;apos;,&amp;apos;age&amp;apos;:18&amp;#">
+<meta property="og:description" content="前言js中的7种数据类型:number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象五个false值:undefined null 0 NaN ‘’  浅淡js对象的基本用法如何声明一个对象声明对象有以下两种做法,其中键名会以字符串形式保存12let obj=&amp;#123;&amp;apos;name&amp;apos;:&amp;apos;frank&amp;apos;,&amp;apos;age&amp;apos;:18&amp;#">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsgramme1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsgramme2.png">
-<meta property="og:updated_time" content="2020-07-13T13:59:45.847Z">
+<meta property="og:updated_time" content="2020-07-13T14:03:53.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsgramme1.png">
   
@@ -165,7 +165,7 @@
         <blockquote>
 <p>前言<br>js中的7种数据类型:<br>number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象<br>五个false值:<br>undefined null 0 NaN ‘’</p>
 </blockquote>
-<h1 id="浅淡js对象的基本用法"><a href="#浅淡js对象的基本用法" class="headerlink" title="浅淡js对象的基本用法"></a>浅淡js对象的基本用法</h1><h2 id="如何声明一个对象"><a href="#如何声明一个对象" class="headerlink" title="如何声明一个对象"></a>如何声明一个对象</h2><p>声明对象由以下两种做法,其中键名会以字符串形式保存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment">//简单写法 常用</span></span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>( &#123; <span class="string">'name'</span>:<span class="string">'frank'</span> &#125; ) <span class="comment">//正规写法</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="浅淡js对象的基本用法"><a href="#浅淡js对象的基本用法" class="headerlink" title="浅淡js对象的基本用法"></a>浅淡js对象的基本用法</h1><h2 id="如何声明一个对象"><a href="#如何声明一个对象" class="headerlink" title="如何声明一个对象"></a>如何声明一个对象</h2><p>声明对象有以下两种做法,其中键名会以字符串形式保存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment">//简单写法 常用</span></span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>( &#123; <span class="string">'name'</span>:<span class="string">'frank'</span> &#125; ) <span class="comment">//正规写法</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="如何删除属性"><a href="#如何删除属性" class="headerlink" title="如何删除属性"></a>如何删除属性</h2><p>使用delete+对象的属性名，即可删除对象的属性，如果该对象没有该属性，程序也不会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="keyword">delete</span> obj.name <span class="comment">//删除了name属性</span></span><br><span class="line"><span class="keyword">delete</span> obj.grade <span class="comment">//虽然没有grade属性但是浏览器不会报错</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="如何查看属性"><a href="#如何查看属性" class="headerlink" title="如何查看属性"></a>如何查看属性</h2><div style="text-align:center">
 <img src="/../images/jsgramme1.png">
@@ -192,7 +192,7 @@
 <p>读时，如果自己没有该属性，则会去原型上寻找该属性。<br>写时，不会走到原型上，直接在自身上修改。</p>
 </blockquote>
 <p>如果非要修改原型<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.toString = <span class="string">'xxx'</span></span><br></pre></td></tr></table></figure><br>此时所有对象的toString方法都被改成了一个字符串’xxx’。一般来说，不要修改原型，会引起很多问题</p>
-<h2 id="如何让我们的新建类，能够指向我们自己指定的原型呢？"><a href="#如何让我们的新建类，能够指向我们自己指定的原型呢？" class="headerlink" title="如何让我们的新建类，能够指向我们自己指定的原型呢？"></a>如何让我们的新建类，能够指向我们自己指定的原型呢？</h2><p><strong>Object.create方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> common = &#123;<span class="attr">kind</span>:<span class="string">'human'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(common)</span><br><span class="line">obj.name = <span class="string">'frank'</span></span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">Object</span>.create(common)y</span><br><span class="line">obj2.name = <span class="string">'jack'</span></span><br></pre></td></tr></table></figure><br>其中common就是我们自己新建的一个原型，他里面藏有了obj1与obj2的共有属性。(类似与java中的抽象类)<br>通过Object.create 我们分别围绕了这个原型，建立了两个对象(类似于继承)。同时他们拥有了自己的独特属性，即他们具体的名字是存在差异的。</p>
+<h2 id="如何让我们的新建的对象，能够指向我们自己指定的原型呢？"><a href="#如何让我们的新建的对象，能够指向我们自己指定的原型呢？" class="headerlink" title="如何让我们的新建的对象，能够指向我们自己指定的原型呢？"></a>如何让我们的新建的对象，能够指向我们自己指定的原型呢？</h2><p><strong>Object.create方法</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> common = &#123;<span class="attr">kind</span>:<span class="string">'human'</span>&#125;</span><br><span class="line"><span class="keyword">let</span> obj = <span class="built_in">Object</span>.create(common)</span><br><span class="line">obj.name = <span class="string">'frank'</span></span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">Object</span>.create(common)y</span><br><span class="line">obj2.name = <span class="string">'jack'</span></span><br></pre></td></tr></table></figure><br>其中common就是我们自己新建的一个原型，他里面藏有了obj1与obj2的共有属性。(类似与java中的抽象类)<br>通过Object.create 我们分别围绕了这个原型，建立了两个对象(类似于继承)。同时他们拥有了自己的独特属性，即他们具体的名字是存在差异的。</p>
 <h2 id="‘name’-in-obj和obj-hasOwnProperty-‘name’-的区别"><a href="#‘name’-in-obj和obj-hasOwnProperty-‘name’-的区别" class="headerlink" title="‘name’ in obj和obj.hasOwnProperty(‘name’) 的区别"></a>‘name’ in obj和obj.hasOwnProperty(‘name’) 的区别</h2><ul>
 <li>‘name’ in obj 判断一个属性是否是自身属性或是共有属性</li>
 <li>obj.hasOwnProperty(‘name’) 判断一个属性是否只是自身独有属性</li>
@@ -443,11 +443,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -160,7 +160,7 @@
         <blockquote>
 <p>前言<br>js中的7种数据类型:<br>number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象<br>五个false值:<br>undefined null 0 NaN ‘’</p>
 </blockquote>
-<h1 id="浅淡js对象的基本用法"><a href="#浅淡js对象的基本用法" class="headerlink" title="浅淡js对象的基本用法"></a>浅淡js对象的基本用法</h1><h2 id="如何声明一个对象"><a href="#如何声明一个对象" class="headerlink" title="如何声明一个对象"></a>如何声明一个对象</h2><p>声明对象由以下两种做法,其中键名会以字符串形式保存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment">//简单写法 常用</span></span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>( &#123; <span class="string">'name'</span>:<span class="string">'frank'</span> &#125; ) <span class="comment">//正规写法</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="浅淡js对象的基本用法"><a href="#浅淡js对象的基本用法" class="headerlink" title="浅淡js对象的基本用法"></a>浅淡js对象的基本用法</h1><h2 id="如何声明一个对象"><a href="#如何声明一个对象" class="headerlink" title="如何声明一个对象"></a>如何声明一个对象</h2><p>声明对象有以下两种做法,其中键名会以字符串形式保存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment">//简单写法 常用</span></span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>( &#123; <span class="string">'name'</span>:<span class="string">'frank'</span> &#125; ) <span class="comment">//正规写法</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="如何删除属性"><a href="#如何删除属性" class="headerlink" title="如何删除属性"></a>如何删除属性</h2><p>使用delete+对象的属性名，即可删除对象的属性，如果该对象没有该属性，程序也不会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="keyword">delete</span> obj.name <span class="comment">//删除了name属性</span></span><br><span class="line"><span class="keyword">delete</span> obj.grade <span class="comment">//虽然没有grade属性但是浏览器不会报错</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="如何查看属性"><a href="#如何查看属性" class="headerlink" title="如何查看属性"></a>如何查看属性</h2><div style="text-align:center">
 <img src="/../images/jsgramme1.png">
@@ -1182,11 +1182,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
+                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
               </li>
              
               <li class="article-tag-list-item">
