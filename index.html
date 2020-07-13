@@ -133,6 +133,104 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-js对象的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">js对象的基本用法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-07-13T13:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>前言<br>js中的7种数据类型:<br>number 数字 string 字符串 bool 布尔 symbol 符号 undefined 空 null 空 object 对象<br>五个false值:<br>undefined null 0 NaN ‘’</p>
+</blockquote>
+<h1 id="浅淡js对象的基本用法"><a href="#浅淡js对象的基本用法" class="headerlink" title="浅淡js对象的基本用法"></a>浅淡js对象的基本用法</h1><h2 id="如何声明一个对象"><a href="#如何声明一个对象" class="headerlink" title="如何声明一个对象"></a>如何声明一个对象</h2><p>声明对象由以下两种做法,其中键名会以字符串形式保存<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; <span class="comment">//简单写法 常用</span></span><br><span class="line"><span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>( &#123; <span class="string">'name'</span>:<span class="string">'frank'</span> &#125; ) <span class="comment">//正规写法</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="如何删除属性"><a href="#如何删除属性" class="headerlink" title="如何删除属性"></a>如何删除属性</h2><p>使用delete+对象的属性名，即可删除对象的属性，如果该对象没有该属性，程序也不会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj=&#123;<span class="string">'name'</span>:<span class="string">'frank'</span>,<span class="string">'age'</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="keyword">delete</span> obj.name <span class="comment">//删除了name属性</span></span><br><span class="line"><span class="keyword">delete</span> obj.grade <span class="comment">//虽然没有grade属性但是浏览器不会报错</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="如何查看属性"><a href="#如何查看属性" class="headerlink" title="如何查看属性"></a>如何查看属性</h2><div style="text-align:center">
+<img src="/../images/jsgramme1.png">
+</div>
+
+<ul>
+<li>obj.xxx或者obj[“xxx”]查看单个属性</li>
+<li>Objects.keys以数组的形式显示所有的key</li>
+<li>Objects.values以数组的形式显示所有的value</li>
+<li>Objects.entries以多维数组的形式显示所有的key与value</li>
+<li>console.dir(obj)打印出类的结构</li>
+</ul>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js的基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -961,97 +1059,6 @@
 
 
   
-    <article id="post-小白的算法修炼之旅-一道题解决动态规划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/05/31/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E4%B8%80%E9%81%93%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">小白的算法修炼之旅--一道题解决动态规划</a>
-    </h1>
-  
-
-        
-        <a href="/2020/05/31/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E4%B8%80%E9%81%93%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" class="archive-article-date">
-  	<time datetime="2020-05-31T10:44:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-31</time>
-</a>
-        
-        
-<!-- 开始添加字数统计-->
-              
-<!-- 添加完成 -->        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="小白的算法修炼之旅—-一道题解决动态规划"><a href="#小白的算法修炼之旅—-一道题解决动态规划" class="headerlink" title="小白的算法修炼之旅—-一道题解决动态规划"></a>小白的算法修炼之旅—-一道题解决动态规划</h1><p>本文将从基础递归，带记忆递归，到最后推导出动态规划的解法。</p>
-<p>问题为leetcode第120号问题。三角形最小路径和</p>
-<p><img src="..\images\120.png" width=400px ></p>
-<h2 id="解法一-纯递归"><a href="#解法一-纯递归" class="headerlink" title="解法一 纯递归"></a>解法一 纯递归</h2><p>我们先从纯递归的角度来思考，假如我们现在位于三角形的顶点部分，那么从顶点走到底的最短路径就等于，我们从左下角走下去的最短路径和与右下角的最短路径和中，取出一个最小值，并加上顶点的权重，即可。</p>
-<p>假设我们设计出了一个函数findMinPath，在这个函数中输入坐标即可得到最短路径和。那么 f(顶点) = Min(f(左下角)+f(右下角))+所在位置权重。</p>
-<p>所以代码可得</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> end = triangle.size();</span><br><span class="line">        <span class="keyword">int</span> res = findMinPath(triangle,<span class="number">0</span>,<span class="number">0</span>,end);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">findMinPath</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; triangle,<span class="keyword">int</span> index,<span class="keyword">int</span> layers, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(layers==end) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> left = findMinPath(triangle,index,layers+<span class="number">1</span>,end);</span><br><span class="line">        <span class="keyword">int</span> right = findMinPath(triangle,index+<span class="number">1</span>,layers+<span class="number">1</span>,end);</span><br><span class="line">        <span class="keyword">return</span> triangle.get(layers).get(index)+Math.min(left,right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>递归的终止条件为，当访问的地方已经超出了原三角形的底边位置则一律返回0。</p>
-<p>目前程序的问题在于经过了大量的重复计算。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/05/31/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E4%B8%80%E9%81%93%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1183,11 +1190,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">python可视化</a>
+                <a href="javascript:void(0)" class="js-tag color5">js学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">js学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">python可视化</a>
               </li>
              
               <li class="article-tag-list-item">
