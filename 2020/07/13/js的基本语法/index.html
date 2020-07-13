@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase2.png">
-<meta property="og:updated_time" content="2020-07-13T07:00:14.581Z">
+<meta property="og:updated_time" content="2020-07-13T14:57:43.767Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase1.png">
   
@@ -181,7 +181,7 @@
 <blockquote>
 <p>0.1 和 0.2 都转化成二进制后再进行运算<br>0.00011001100110011001100110011001100110011001100110011010 +<br>0.0011001100110011001100110011001100110011001100110011010 =<br>0.0100110011001100110011001100110011001100110011001100111<br>转成十进制正好是 0.30000000000000004</p>
 </blockquote>
-<h2 id="浮点计算问题-1"><a href="#浮点计算问题-1" class="headerlink" title="浮点计算问题"></a>浮点计算问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="for循环包裹异步函数的问题"><a href="#for循环包裹异步函数的问题" class="headerlink" title="for循环包裹异步函数的问题"></a>for循环包裹异步函数的问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行的结果并不是0~4,而是5个5。<br>原因在于，for循环执行，在js引擎读到setTimeout时，因为setTimeout是一个异步的操作不是立即执行的，他们的回调会被push到任务队列的最尾端中，等五次循环结束此时i已经变成5了，再执行任务队列中的回调函数时，输出了5个5。</p>
 <h2 id="label代码块"><a href="#label代码块" class="headerlink" title="label代码块"></a>label代码块</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">foo:<span class="number">1</span>    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上述语句并不表示对象。表示foo是一个label，他的语句是1。<br>类似的用法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo:&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">break</span> foo:</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'本行不会输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
@@ -440,15 +440,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,15 +460,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
               </li>
             
             <div class="clearfix"></div>
@@ -607,9 +607,9 @@ MathJax.Hub.Queue(function() {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
