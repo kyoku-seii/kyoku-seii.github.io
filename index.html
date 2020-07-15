@@ -133,6 +133,103 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浅淡js的执行机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/">浅淡js的执行机制</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2020-07-15T07:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浅淡js的执行机制"><a href="#浅淡js的执行机制" class="headerlink" title="浅淡js的执行机制"></a>浅淡js的执行机制</h1><p>继续上一次的话题，先看代码<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> i = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span>(i = <span class="number">0</span>; i&lt;<span class="number">6</span>; i++)&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>上述的代码结果为6 6 6 6 6 6。具体原因在上篇文章中有提到过，setTimeout是一个异步的操作，js中异步操作需要等到主线程空闲，并且时间到了之后才执行。而for循环是一个同步的操作，会直接执行5次，i经过5次已经变成了6.所以每个异步操作会取到操作结束的i结果，答案为6个6.</p>
+<h2 id="那么怎么让这个代码按顺序输出呢？"><a href="#那么怎么让这个代码按顺序输出呢？" class="headerlink" title="那么怎么让这个代码按顺序输出呢？"></a>那么怎么让这个代码按顺序输出呢？</h2><h3 id="方法一闭包"><a href="#方法一闭包" class="headerlink" title="方法一闭包"></a>方法一闭包</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i&lt;<span class="number">6</span>; i++)&#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(j)</span><br><span class="line">  &#125;,<span class="number">0</span>)</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>匿名函数 function(j){} 包裹 setTimeout（）</li>
+<li>在匿名函数后加个（）立即调用，并把 i 当作参数 ,j作为形参传入匿名函数进行调用。</li>
+</ul>
+<p>闭包的特点是有一个外部的函数和一个内部函数<br>内部函数调用外部函数的变量，保证外部函数的变量不被释放。</p>
+<h3 id="方法二-let"><a href="#方法二-let" class="headerlink" title="方法二 let"></a>方法二 let</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i&lt;<span class="number">6</span>; i++)&#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(j)</span><br><span class="line">  &#125;,<span class="number">0</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么设置let就能够顺序输出呢，我们打来babel来看一下编译器到底做了什么。</p>
+<p><div style="text-align:center">
+<img src="/../images/jsbabel.png">
+</div><br>可以看到编译器其实新建了一个外函数叫_loop,并且把每次的i传入了这个函数。<br>setTimeout内部的函数，每次调用传入的i。其实两个之间形成了闭包的关系。<br>也就是在新版js中，把let写入for循环，编译器就能自己完成闭包。</p>
+<h3 id="方法-3（setTimeout第三个参数）"><a href="#方法-3（setTimeout第三个参数）" class="headerlink" title="方法 3（setTimeout第三个参数）"></a>方法 3（setTimeout第三个参数）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for (var i=0; i&lt;6;i++) &#123;</span><br><span class="line">	setTimeout( function(value)&#123;</span><br><span class="line">		console.log(value)</span><br><span class="line">	&#125;, 0, i)  //setTimeout 第三个参数，声明后这个参数可以将自身传给第一个参数 function（value），</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用setTimeout 的第三个参数—这个参数可以将自身传给第一个参数,也就是匿名函数function（value）中，作为所需要的参数value，可默认不写就不会传入任何东西。而 i 共传入6次，所以输出（0，1，2，3，4，5）。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上总结了解决这个问题的三个方法，其实三个方法的本质都是一样的，就是希望在执行异步操作时依然可以得到当初的变量i。通过闭包来保证外部函数的变量不被释放，或者是利用setTimeout的第三个参数来直接传入。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-js对象的基本用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -974,91 +1071,6 @@
 
 
   
-    <article id="post-小白的算法修炼之旅-并查集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/">小白的算法修炼之旅-并查集</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/" class="archive-article-date">
-  	<time datetime="2020-06-06T04:10:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-06</time>
-</a>
-        
-        
-<!-- 开始添加字数统计-->
-              
-<!-- 添加完成 -->        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一篇文章入门并查集-Union-Find"><a href="#一篇文章入门并查集-Union-Find" class="headerlink" title="一篇文章入门并查集(Union Find)"></a>一篇文章入门并查集(Union Find)</h1><p>时间忙，PPT做的图略潦草，请见谅</p>
-<h2 id="1-为什么需要并查集"><a href="#1-为什么需要并查集" class="headerlink" title="1.为什么需要并查集"></a>1.为什么需要并查集</h2><p>并查集可以快速解决联通问题。比如我们想知道像下面这张图中，任意两点是否相连，我们当然可以通过bfs与dfs求出链接的路径。但是这样做我们就多做了一些事情，因为我们其实并不需要知道他们之间是具体如何相连，而是想知道他们之间是否相连，所以答案只需回答yes或者no即可。而并查集就可以快速回答这个问题。</p>
-<image src="\..\images\union1.png" width=400px>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/06/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B6%E6%9F%A5%E9%9B%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1182,15 +1194,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">js学习</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">工具使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">HTML学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1206,11 +1218,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css学习</a>
+                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
+                <a href="javascript:void(0)" class="js-tag color1">css学习</a>
               </li>
             
             <div class="clearfix"></div>
@@ -1349,9 +1361,9 @@ MathJax.Hub.Queue(function() {
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"left","width":150,"height":400},"mobile":{"show":true},"react":{"opacity":1},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script><!-- hexo-inject:begin --><!-- hexo-inject:end --></body>
 </html>
 <script type="text/javascript" src="/js/src/love.js"></script>
