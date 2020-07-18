@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: js学习 | 王旭成的博客</title>
+  <title>jQuery的常用api总结 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="王旭成的博客">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;js%E5%AD%A6%E4%B9%A0&#x2F;index.html">
+  <meta name="description" content="浅谈jQuery利用css选择器找到网页元素$(‘css表达式’)就可以选中想要的元素12345　　$(&amp;apos;#myId&amp;apos;) &#x2F;&#x2F;选择ID为myId的网页元素　　$(&amp;apos;div.myClass&amp;apos;) &#x2F;&#x2F; 选择class为myClass的div元素　　$(&amp;apos;input[name=first]&amp;apos;) &#x2F;&#x2F; 选择name属性等于first的input元素还可以利用过滤器对选中的结果经行筛选123456789">
+<meta name="keywords" content="js学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery的常用api总结">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;18&#x2F;jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
+<meta property="og:description" content="浅谈jQuery利用css选择器找到网页元素$(‘css表达式’)就可以选中想要的元素12345　　$(&amp;apos;#myId&amp;apos;) &#x2F;&#x2F;选择ID为myId的网页元素　　$(&amp;apos;div.myClass&amp;apos;) &#x2F;&#x2F; 选择class为myClass的div元素　　$(&amp;apos;input[name=first]&amp;apos;) &#x2F;&#x2F; 选择name属性等于first的input元素还可以利用过滤器对选中的结果经行筛选123456789">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-07-18T11:49:40.207Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
@@ -131,36 +135,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-jQuery的常用api总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      jQuery的常用api总结
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="archive-article-date">
+
+        
+        <a href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="archive-article-date">
   	<time datetime="2020-07-18T11:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/">jQuery的常用api总结</a>
-    </h1>
-  
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浅谈jQuery"><a href="#浅谈jQuery" class="headerlink" title="浅谈jQuery"></a>浅谈jQuery</h1><h2 id="利用css选择器找到网页元素"><a href="#利用css选择器找到网页元素" class="headerlink" title="利用css选择器找到网页元素"></a>利用css选择器找到网页元素</h2><p>$(‘css表达式’)就可以选中想要的元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'#myId'</span>) <span class="comment">//选择ID为myId的网页元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div.myClass'</span>) <span class="comment">// 选择class为myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'input[name=first]'</span>) <span class="comment">// 选择name属性等于first的input元素</span></span><br></pre></td></tr></table></figure><br>还可以利用过滤器对选中的结果经行筛选<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'div'</span>).has(<span class="string">'p'</span>); <span class="comment">// 选择包含p元素的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).not(<span class="string">'.myClass'</span>); <span class="comment">//选择class不等于myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).filter(<span class="string">'.myClass'</span>); <span class="comment">//选择class等于myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).first(); <span class="comment">//选择第1个div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).eq(<span class="number">5</span>); <span class="comment">//选择第6个div元素</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).find(<span class="string">'h3'</span>).eq(<span class="number">2</span>).html(<span class="string">'Hello'</span>);</span><br><span class="line"><span class="comment">//找到div元素,选择其中的h3元素,选择第3个h3元素,将它的内容改为Hello</span></span><br></pre></td></tr></table></figure>
+<p>链式操作允许对选中的网页元素进行一系列的操作。<br>原理在于每一步的jQuery操作，返回的都是一个jQuery对象，所以不同操作可以连在一起。</p>
+<h2 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h2><p>把新元素直接传入jQuery的构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'&lt;p&gt;Hello&lt;/p&gt;'</span>);</span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'ul'</span>).append(<span class="string">'&lt;li&gt;list item&lt;/li&gt;'</span>);</span><br><span class="line"><span class="comment">//创建li节点，并把它挂在ul的内部</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><p>.remove()方法删除元素<br>.empty()方法清空元素<br><a id="more"></a></p>
+<h2 id="移动元素"><a href="#移动元素" class="headerlink" title="移动元素"></a>移动元素</h2><p>使用了两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是找到标定点，并将节点放在标定点的相对位置。<br>比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).insertAfter($(<span class="string">'p'</span>));</span><br><span class="line"><span class="comment">//创建的元素放入p的后面</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'p'</span>).after($(<span class="string">'div'</span>));</span><br><span class="line"><span class="comment">//以已有的元素p为标定点，将创建的div放入p的后面</span></span><br></pre></td></tr></table></figure><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">　　.insertAfter()和.after()：在现存元素的外部，从后面插入元素</span><br><span class="line"></span><br><span class="line">　　.insertBefore()和.before()：在现存元素的外部，从前面插入元素</span><br><span class="line"></span><br><span class="line">　　.appendTo()和.append()：在现存元素的内部，从后面插入元素</span><br><span class="line"></span><br><span class="line">　　.prependTo()和.prepend()：在现存元素的内部，从前面插入元素</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改元素"><a href="#修改元素" class="headerlink" title="修改元素"></a>修改元素</h2><p>jQuery中使用同一个函数来完成取值与赋值<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">　　.html() 取出或设置html内容</span><br><span class="line"></span><br><span class="line">　　.text() 取出或设置text内容</span><br><span class="line"></span><br><span class="line">　　.attr() 取出或设置某个属性的值</span><br><span class="line"></span><br><span class="line">　　.width() 取出或设置某个元素的宽度</span><br><span class="line"></span><br><span class="line">　　.height() 取出或设置某个元素的高度</span><br><span class="line"></span><br><span class="line">　　.val() 取出某个表单元素的值</span><br></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -172,133 +185,115 @@
 		</ul>
 	</div>
 
-          
 
+<!-- 开始添加阅读量-->
+
+                <span id="busuanzi_container_page_pv">
+  |  阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+<!-- 添加完成 -->
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2020-07-15T07:45:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅淡js的执行机制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/15/%E6%B5%85%E6%B7%A1js%E7%9A%84%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6/">浅淡js的执行机制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-07-13T13:03:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">js对象的基本用法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/07/13/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-07-13T01:04:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/07/13/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">js的基本语法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -334,9 +329,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

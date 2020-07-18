@@ -133,6 +133,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jQuery的常用api总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/">jQuery的常用api总结</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" class="archive-article-date">
+  	<time datetime="2020-07-18T11:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-18</time>
+</a>
+        
+        
+<!-- 开始添加字数统计-->
+              
+<!-- 添加完成 -->        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="浅谈jQuery"><a href="#浅谈jQuery" class="headerlink" title="浅谈jQuery"></a>浅谈jQuery</h1><h2 id="利用css选择器找到网页元素"><a href="#利用css选择器找到网页元素" class="headerlink" title="利用css选择器找到网页元素"></a>利用css选择器找到网页元素</h2><p>$(‘css表达式’)就可以选中想要的元素<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'#myId'</span>) <span class="comment">//选择ID为myId的网页元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div.myClass'</span>) <span class="comment">// 选择class为myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'input[name=first]'</span>) <span class="comment">// 选择name属性等于first的input元素</span></span><br></pre></td></tr></table></figure><br>还可以利用过滤器对选中的结果经行筛选<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'div'</span>).has(<span class="string">'p'</span>); <span class="comment">// 选择包含p元素的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).not(<span class="string">'.myClass'</span>); <span class="comment">//选择class不等于myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).filter(<span class="string">'.myClass'</span>); <span class="comment">//选择class等于myClass的div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).first(); <span class="comment">//选择第1个div元素</span></span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'div'</span>).eq(<span class="number">5</span>); <span class="comment">//选择第6个div元素</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="链式操作"><a href="#链式操作" class="headerlink" title="链式操作"></a>链式操作</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'div'</span>).find(<span class="string">'h3'</span>).eq(<span class="number">2</span>).html(<span class="string">'Hello'</span>);</span><br><span class="line"><span class="comment">//找到div元素,选择其中的h3元素,选择第3个h3元素,将它的内容改为Hello</span></span><br></pre></td></tr></table></figure>
+<p>链式操作允许对选中的网页元素进行一系列的操作。<br>原理在于每一步的jQuery操作，返回的都是一个jQuery对象，所以不同操作可以连在一起。</p>
+<h2 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h2><p>把新元素直接传入jQuery的构造函数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">　　$(<span class="string">'&lt;p&gt;Hello&lt;/p&gt;'</span>);</span><br><span class="line"></span><br><span class="line">　　$(<span class="string">'ul'</span>).append(<span class="string">'&lt;li&gt;list item&lt;/li&gt;'</span>);</span><br><span class="line"><span class="comment">//创建li节点，并把它挂在ul的内部</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h2><p>.remove()方法删除元素<br>.empty()方法清空元素<br>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+<!-- 开始添加阅读量-->
+
+<!-- 添加完成 -->
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-浅淡js的执行机制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -983,94 +1070,6 @@
 
 
   
-    <article id="post-小白的算法修炼之旅-平衡二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">小白的算法修炼之旅-平衡二叉树</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="archive-article-date">
-  	<time datetime="2020-06-07T07:02:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-07</time>
-</a>
-        
-        
-<!-- 开始添加字数统计-->
-              
-<!-- 添加完成 -->        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="对于平衡二叉树的一些简单总结"><a href="#对于平衡二叉树的一些简单总结" class="headerlink" title="对于平衡二叉树的一些简单总结"></a>对于平衡二叉树的一些简单总结</h1><h2 id="1-什么是平衡二叉树"><a href="#1-什么是平衡二叉树" class="headerlink" title="1.什么是平衡二叉树"></a>1.什么是平衡二叉树</h2><p><strong>对于任意一个节点，左子树和右子树的高度差不能超过1</strong></p>
-<font size=2px>一个节点的高度=max(左子树高度，右子树高度)+1</font>
-
-<p>所以我们引入了平衡因子这个概念，平衡因子 = 左子树高度-右子树的高度</p>
-<p><image src="\..\images\AVL1.png" width=400px>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<image src="\..\images\AVL2.png" width=400px></p>
-<p>左右两张图分别是各个结点的的高度与平衡因子。<br>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">算法修炼</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-<!-- 开始添加阅读量-->
-
-<!-- 添加完成 -->
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/07/%E5%B0%8F%E7%99%BD%E7%9A%84%E7%AE%97%E6%B3%95%E4%BF%AE%E7%82%BC%E4%B9%8B%E6%97%85-%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1214,7 +1213,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">css学习</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1222,7 +1221,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">css学习</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
             
             <div class="clearfix"></div>
