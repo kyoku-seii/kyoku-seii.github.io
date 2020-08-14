@@ -6,21 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>js的基本语法 | 王旭成的博客</title>
+  <title>准备面试-html篇 | 王旭成的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="浅谈js基本语法本文由学习js基础语法时，遇到的3个问题出发，浅谈一下问题的原因。 浮点计算问题12345var a = 0.1while(a!==1)&amp;#123;    console.log(a)    a = a + 0.1&amp;#125; 上述代码会引发浏览器死机。究其原因在于相加过程中，a的值变成了0.99999..导致a永远不会等于1从而造成无限的循环。还比如在js中0.1+0.2 !=0">
-<meta name="keywords" content="js学习">
+  <meta name="description" content="面试题准备自己整理了一些常见的面试题以及知识点，争取用最简洁的语言与代码回答这些问题。 HTML部分如何理解html语义化 让人更容易读懂代码 seo优化  常见块状元素，内联元素 display:block div h1 h2 table ul ol p等 display:inline span img input button等  meta viewport 怎么写？1&amp;lt;meta nam">
+<meta name="keywords" content="面试准备">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js的基本语法">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;07&#x2F;13&#x2F;js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95&#x2F;index.html">
+<meta property="og:title" content="准备面试-html篇">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;08&#x2F;14&#x2F;%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95-html%E4%B8%8Ecss%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86&#x2F;index.html">
 <meta property="og:site_name" content="王旭成的博客">
-<meta property="og:description" content="浅谈js基本语法本文由学习js基础语法时，遇到的3个问题出发，浅谈一下问题的原因。 浮点计算问题12345var a = 0.1while(a!==1)&amp;#123;    console.log(a)    a = a + 0.1&amp;#125; 上述代码会引发浏览器死机。究其原因在于相加过程中，a的值变成了0.99999..导致a永远不会等于1从而造成无限的循环。还比如在js中0.1+0.2 !=0">
+<meta property="og:description" content="面试题准备自己整理了一些常见的面试题以及知识点，争取用最简洁的语言与代码回答这些问题。 HTML部分如何理解html语义化 让人更容易读懂代码 seo优化  常见块状元素，内联元素 display:block div h1 h2 table ul ol p等 display:inline span img input button等  meta viewport 怎么写？1&amp;lt;meta nam">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase2.png">
-<meta property="og:updated_time" content="2020-07-13T14:57:43.767Z">
+<meta property="og:updated_time" content="2020-08-14T10:06:35.062Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;jsbase1.png">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
   
@@ -138,20 +135,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-js的基本语法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-准备面试-html与css部分知识整理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      js的基本语法
+      准备面试-html篇
     </h1>
   
 
         
-        <a href="/2020/07/13/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-07-13T01:04:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
+        <a href="/2020/08/14/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95-html%E4%B8%8Ecss%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" class="archive-article-date">
+  	<time datetime="2020-08-14T05:27:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-14</time>
 </a>
         
         
@@ -162,29 +159,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="浅谈js基本语法"><a href="#浅谈js基本语法" class="headerlink" title="浅谈js基本语法"></a>浅谈js基本语法</h1><p>本文由学习js基础语法时，遇到的3个问题出发，浅谈一下问题的原因。</p>
-<h2 id="浮点计算问题"><a href="#浮点计算问题" class="headerlink" title="浮点计算问题"></a>浮点计算问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0.1</span></span><br><span class="line"><span class="keyword">while</span>(a!==<span class="number">1</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">    a = a + <span class="number">0.1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码会引发浏览器死机。究其原因在于相加过程中，a的值变成了0.99999..导致a永远不会等于1从而造成无限的循环。还比如在js中0.1+0.2 !=0.3而产生这种现象的原因就在于<strong>浮点数储存</strong><br>js中无论小数还是整数都只有1种Number的数据类型。为遵循 IEEE 754 标准，使用 64 位 double 双精度浮点数来表示。</p>
-<p><img src="/../images/jsbase1.png"></p>
-<p>这64个比特位被分成了上图的三个部分</p>
+        <h1 id="面试题准备"><a href="#面试题准备" class="headerlink" title="面试题准备"></a>面试题准备</h1><p>自己整理了一些常见的面试题以及知识点，争取用最简洁的语言与代码回答这些问题。</p>
+<h1 id="HTML部分"><a href="#HTML部分" class="headerlink" title="HTML部分"></a>HTML部分</h1><h2 id="如何理解html语义化"><a href="#如何理解html语义化" class="headerlink" title="如何理解html语义化"></a>如何理解html语义化</h2><ol>
+<li>让人更容易读懂代码</li>
+<li>seo优化</li>
+</ol>
+<h2 id="常见块状元素，内联元素"><a href="#常见块状元素，内联元素" class="headerlink" title="常见块状元素，内联元素"></a>常见块状元素，内联元素</h2><ol>
+<li>display:block div h1 h2 table ul ol p等</li>
+<li>display:inline span img input button等</li>
+</ol>
+<h2 id="meta-viewport-怎么写？"><a href="#meta-viewport-怎么写？" class="headerlink" title="meta viewport 怎么写？"></a>meta viewport 怎么写？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1&quot;&gt;</span><br></pre></td></tr></table></figure>
+<p>手机浏览器是把页面放在一个虚拟的“窗口”（viewport）中。</p>
 <ul>
-<li>符号位S：第 1 位是正负数符号位（sign），0代表正数，1代表负数</li>
-<li>指数位E：中间的 11 位存储指数（exponent），用来表示次方数</li>
-<li>尾数位M：最后的 52 位是尾数（mantissa），超出的部分自动进一舍零</li>
+<li>width=device-width 让viewport的宽度等于物理设备上的真实分辨率</li>
+<li>initial-scale=1 初始化的时候缩放大小是1，也就是不缩放。</li>
+<li>maximum-scale=1.0  minimum-scale=1 其实也是禁止用户缩放的意思。</li>
 </ul>
-<p>E是一个无符号整数，因为长度是11位，取值范围是 0~2047。但是科学计数法中的指数是可以为负数的，所以再减去一个中间数 1023，[0,1022]表示为负，[1024,2047] 表示为正。</p>
 <a id="more"></a>
-<p>所以把0.1转成二进制来表示的话，0.0001100110011001100(1100循环)等于1.100110011001100x2^-4，<br>所以 E=-4+1023=1019；M 舍去首位的1，得到 100110011…最终结果如下</p>
-<p><img src="/../images/jsbase2.png" width=500></p>
-<p>但是这个数转成十进制为0.100000000000000005551115123126，因此就出现了浮点误差。</p>
-<p><strong>提问:为什么0.1+0.2=0.30000000000000004</strong></p>
+<h2 id="列举html5-标签"><a href="#列举html5-标签" class="headerlink" title="列举html5 标签"></a>列举html5 标签</h2><ul>
+<li>布局相关 header main footer aside article</li>
+<li>功能性标签 video audio canvas</li>
+</ul>
 <blockquote>
-<p>0.1 和 0.2 都转化成二进制后再进行运算<br>0.00011001100110011001100110011001100110011001100110011010 +<br>0.0011001100110011001100110011001100110011001100110011010 =<br>0.0100110011001100110011001100110011001100110011001100111<br>转成十进制正好是 0.30000000000000004</p>
+<p> 扩展一下</p>
 </blockquote>
-<h2 id="for循环包裹异步函数的问题"><a href="#for循环包裹异步函数的问题" class="headerlink" title="for循环包裹异步函数的问题"></a>for循环包裹异步函数的问题</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行的结果并不是0~4,而是5个5。<br>原因在于，for循环执行，在js引擎读到setTimeout时，因为setTimeout是一个异步的操作不是立即执行的，他们的回调会被push到任务队列的最尾端中，等五次循环结束此时i已经变成5了，再执行任务队列中的回调函数时，输出了5个5。</p>
-<h2 id="label代码块"><a href="#label代码块" class="headerlink" title="label代码块"></a>label代码块</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">foo:<span class="number">1</span>    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述语句并不表示对象。表示foo是一个label，他的语句是1。<br>类似的用法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">foo:&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"><span class="keyword">break</span> foo:</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'本行不会输出'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="audio-api"><a href="#audio-api" class="headerlink" title="audio api"></a>audio api</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">"/music.mp3"</span> <span class="attr">autoplay</span>=<span class="string">"autoplay"</span> <span class="attr">loop</span>=<span class="string">"-1"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span>浏览器该退休了<span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="audio-与source"><a href="#audio-与source" class="headerlink" title="audio 与source"></a>audio 与source</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">autoplay</span>=<span class="string">"autoplay"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"/music.mp3"</span> <span class="attr">type</span>=<span class="string">"audio/mpeg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">"/music4.mp4"</span> <span class="attr">controls</span>=<span class="string">"controls"</span>&gt;</span>  </span><br><span class="line"></span><br><span class="line">// 或者</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">controls</span>=<span class="string">"controls"</span> <span class="attr">width</span>=<span class="string">"1024"</span> <span class="attr">height</span>=<span class="string">"768"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">"/music.mp4"</span> <span class="attr">type</span>=<span class="string">"video"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=<span class="string">"canvas"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvas'</span>);</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">'2d'</span>);</span><br><span class="line"></span><br><span class="line">ctx.fillStyle = <span class="string">'green'</span>;</span><br><span class="line">ctx.fillRect(<span class="number">10</span>, <span class="number">10</span>, <span class="number">150</span>, <span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="H5-是什么？"><a href="#H5-是什么？" class="headerlink" title="H5 是什么？"></a>H5 是什么？</h2><p>H5表示移动端页面</p>
 
       
 
@@ -198,7 +201,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">js学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">面试准备</a>
         		</li>
       		
 		</ul>
@@ -263,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/13/js%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/14/%E5%87%86%E5%A4%87%E9%9D%A2%E8%AF%95-html%E4%B8%8Ecss%E9%83%A8%E5%88%86%E7%9F%A5%E8%AF%86%E6%95%B4%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -277,18 +280,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/07/13/js%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js对象的基本用法
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/07/12/%E6%B5%85%E8%B0%88url/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">浅谈url</div>
+    <a href="/2020/07/18/jQuery%E7%9A%84%E5%B8%B8%E7%94%A8api%E6%80%BB%E7%BB%93/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jQuery的常用api总结</div>
       <i class="icon-circle-right"></i>
     </a>
   
