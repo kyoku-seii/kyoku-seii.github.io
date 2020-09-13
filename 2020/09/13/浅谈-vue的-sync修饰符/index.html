@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="王旭成的博客">
 <meta property="og:description" content="浅谈vue中的.sync修饰符定义 .sync 修饰符其实是一个编译中的语法糖。它其实是一个自动更新父组件属性的监听器。接下来还是结合具体的例子来说明 具体例子 假设我们现在有一个父组件与子组件，父组件通过传递属性的方式向子组件传递数据。如下面的例子中，父组件向子组件传递属性money。  当我们点击按钮时，我们需要对传入的总钱进行-100的操作，由于vue规定 组件不能修改props的外部数据。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-09-13T10:14:04.501Z">
+<meta property="og:updated_time" content="2020-09-13T10:17:26.712Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="王旭成的博客" type="application/atom+xml">
@@ -161,7 +161,7 @@
       
         <h1 id="浅谈vue中的-sync修饰符"><a href="#浅谈vue中的-sync修饰符" class="headerlink" title="浅谈vue中的.sync修饰符"></a>浅谈vue中的.sync修饰符</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p> .sync 修饰符其实是一个编译中的语法糖。它其实是一个自动更新父组件属性的监听器。接下来还是结合具体的例子来说明</p>
 <h2 id="具体例子"><a href="#具体例子" class="headerlink" title="具体例子"></a>具体例子</h2><p> 假设我们现在有一个父组件与子组件，父组件通过传递属性的方式向子组件传递数据。如下面的例子中，父组件向子组件传递属性money。</p>
-<p> 当我们点击按钮时，我们需要对传入的总钱进行-100的操作，由于vue规定 <strong>组件不能修改props的外部数据</strong>。我们可以通过 $emit来触发事件，并传递修改后的数据。在父组件进行监听，并且可以通过$event来得到emit所携带的第二个参数。<br> 具体代码如下</p>
+<p> 当我们点击按钮时，我们需要对传入的总钱进行-100的操作，由于vue规定 <strong>组件不能修改props的外部数据</strong>。我们可以通过emit来触发事件，并传递修改后的数据。在父组件进行监听，并且可以通过event来得到emit所携带的第二个参数。<br> 具体代码如下</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    我是父组件，拥有&#123;&#123;total&#125;&#125;元</span><br><span class="line">    &lt;hr /&gt;</span><br><span class="line">    &lt;Child :money=<span class="string">"total"</span> v-on:update:money=<span class="string">"total = $event"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> Child <span class="keyword">from</span> <span class="string">"./components/Child.vue"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    components: &#123;</span><br><span class="line">        Child,</span><br><span class="line">    &#125;,</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            total: <span class="number">1000</span>,</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 <a id="more"></a>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"child"</span>&gt;</span><br><span class="line">    我是子组件我得到了&#123;&#123;money&#125;&#125;元</span><br><span class="line">    &lt;button @click=<span class="string">"$emit('update:money', money-100)"</span>&gt;花钱<span class="number">-100</span>&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>div&gt;</span><br><span class="line">&lt;<span class="regexp">/template&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">export default &#123;</span></span><br><span class="line"><span class="regexp">  props: ["money"],</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
@@ -428,11 +428,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面试准备</a>
+                <a href="javascript:void(0)" class="js-tag color5">python可视化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">python可视化</a>
+                <a href="javascript:void(0)" class="js-tag color5">面试准备</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -441,6 +441,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">手写系列</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -453,10 +457,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">css学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">科普知识</a>
               </li>
             
             <div class="clearfix"></div>
